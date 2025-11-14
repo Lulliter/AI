@@ -1,0 +1,65 @@
+---
+title: "IA nelle Fondazioni Bancarie"
+subtitle: "(Resoconto del corso ACRI)"
+date: today
+date-format: "DD MMMM YYYY"
+metadata-files:
+  - brand/brand-theme.yml
+format: revealjs
+  # revealjs:
+  #   output-file: presentazione.pdf
+  #   pdf-separate-fragments: false
+execute:
+  echo: true
+  include: true
+  freeze: auto
+---
+
+
+## Quarto
+
+- Footnote ^[the footnote text]
+- aside
+- speakers notes
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## Il corso si è tenuto il 6/7 Novembre 2025 con questo programma
+
+::: {style="font-size: 85%;"}
++ **Giorno 1 (9:30 – 17:30)**
+	+ Introduzione all’AI
+	+ AI per analisi del contesto
+	+ AI per elaborazione di un bando
+	+ AI per la valutazione dei progetti
++ **Giorno 2 (9:00 – 13:00)**
+	+ AI per Monitoraggio / Valutazione Impatto
+	+ Governance e strategie di adozione
+	+ Wrap-Up
+:::
+
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## Il docente
+
+<!-- insert slide 4 sua  -->
+
+## A che punto siamo con l'AI?
+<!-- insert to pics side by side -->
+::: {.columns}
+::: {.column width="60%"}
+![Ciclo innovazioni](assets/innov_cycle.png){width="100%"}
+:::
+::: {.column width="40%"}
+![Adozione di IA tra i presenti](assets/sondaggio.jpg){width="100%"}
+:::
+:::	

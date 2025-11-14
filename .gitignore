@@ -1,0 +1,79 @@
+# ----------------- macOS Finder metadata
+.DS_Store
+
+# ----------------- QUARTO & WEBSITE
+/.quarto/
+/_freeze/
+/_site/
+#/docs/ # Here is where I *render* the site
+
+# ----------------- CONFIGURATION FILES (R & RSTUDIO)
+# History files
+.Rhistory
+.Rapp.history
+# Session Data files
+.RData
+# User-specific files
+.Ruserdata
+# RStudio files
+.Rproj.user/
+# R Environment Variables
+.Renviron
+# -----------------  knitr and R markdown default cache directories
+*_cache/
+/cache/
+*_files/
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# ----------------- GENERATED FILES
+# Generated outputs in root
+#*.pdf
+#*.docx
+#*.html
+
+# --- NOT THIS THOUGH!!!!
+!README.HTML
+!README.html
+
+# ----------------- CONFIGURATION FILES (VS Code)
+# VS Code "workspace"
+# https://code.visualstudio.com/docs/editor/workspaces
+.vscode/*
+
+# ----------------- OLD OR "NOT YET" FILES
+zzz_old/*
+# ...
+
+
+# ------ PRIVATE
+bib/"Corso di formazione - AI al servizio delle Fondazioni di Origine Bancaria.pdf""
+
+# ----------------- SENSITIVE DATA FILES
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# ----------------- IGNORE FOLDER EXCEPT FOR ....
+# OKKIO `/**/*.ext` will go look for extension recursively
+# ignore everything under...
+zzzz_heavy_stuff/**
+# ...BUT keep track of the `*.md` files (regardless how deep in the folder)
+!zzzz_heavy_stuff/**/*.md
+##--- check with
+# what will be tracked under data_out     git ls-files 'zzzz_heavy_stuff/**'
+# what’s being ignored there              git status --ignored -- zzzz_heavy_stuff/**/
+# OPTIONAL put .gitkeep  in subfolder to track even empty
+# keep the folder present even if empty/ignored
+!/zzzz_heavy_stuff/heavy_content/.gitkeep
+
+## ----------------- R PACKG FILES
+## Example code in package build process
+#*-Ex.R
+## Output files from R CMD build
+#/*.tar.gz
+## Output files from R CMD check
+#/*.Rcheck/
+
+
+**/*.quarto_ipynb

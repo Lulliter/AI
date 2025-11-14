@@ -1,0 +1,75 @@
+/*-- scss:defaults --*/
+
+// Importa Google Font per caption narrow
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+
+// Colori del brand
+$primary-color: #2C5F8D;      // Sostituisci con il tuo colore primario
+$footer-color: #5582a7;      // Sostituisci con il tuo colore footer
+$secondary-color: #E86A33;    // Sostituisci con il tuo colore secondario
+$accent-color: #F4C430;       // Sostituisci con il tuo colore accent
+$text-color: #333333;
+$background-color: #FFFFFF;
+
+// Font del brand - Century Gothic
+$font-family-sans-serif: "Century Gothic", "CenturyGothic", AppleGothic, sans-serif;
+$presentation-heading-font: "Century Gothic", "CenturyGothic", AppleGothic, sans-serif;
+$presentation-font-size-root: 36px;
+
+/*-- scss:rules --*/
+
+// Applica i colori agli elementi
+.reveal {
+  color: $text-color;
+  font-weight: 400; // Regular
+}
+
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  color: $primary-color;
+  font-weight: 700; // Bold per i titoli
+}
+
+.reveal a {
+  color: $secondary-color;
+}
+
+.reveal strong, .reveal b {
+  color: $primary-color;
+  font-weight: 700; // Bold
+}
+
+.reveal em, .reveal i {
+  font-style: italic; // Italic
+}
+
+// Figure caption styling - Roboto Condensed
+.reveal figcaption,
+.reveal .figure-caption {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 0.5em;
+  font-weight: 300;
+  color: #666666;
+  margin-top: -0.5em;
+}
+
+// Aside styling - Regular Italic
+.reveal aside {
+  font-style: italic;
+  font-weight: 400; // Regular
+}
+
+// Footer styling
+.reveal .footer {
+  color: $footer-color;
+  font-size: 0.6em;
+}
+
+// Logo styling
+.reveal .slide-logo {
+  height: 80px;
+  width: auto;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
