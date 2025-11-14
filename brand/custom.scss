@@ -2,14 +2,43 @@
 
 // Importa Google Font per caption narrow
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+
+// Palette di colori disponibili
+$blu_ist_sc: #012432;
+$blu_ist_md: #2C5F8D;
+$blu_ist_lg: #5582A7;
+$blu_sc: #033c55;
+$blu_md: #005d82;
+$blu_lg: #5582a7;
+$grn_sc: #246864;
+$grn_md: #539d90;
+$grn_lg: #8eb9b1;
+$pur_sc: #553c64;
+$pur_md: #805f95;
+$pur_lg: #9a8da3;
+$ylw_sc: #9f7d35;
+$ylw_md: #d9b942;
+$ylw_lg: #f7da7b;
+$red_sc: #9f4136;
+$red_md: #e55b4f;
+$red_lg: #f18b83;
+$grey_lg: #FDFBF7;
+$grey_md: #d3d3d3;
+$grey_sc: #a9a9a9;
+$grey_SC: #333333;
+
 
 // Colori del brand
-$primary-color: #2C5F8D;      // Sostituisci con il tuo colore primario
-$footer-color: #5582a7;      // Sostituisci con il tuo colore footer
-$secondary-color: #E86A33;    // Sostituisci con il tuo colore secondario
-$accent-color: #F4C430;       // Sostituisci con il tuo colore accent
-$text-color: #333333;
+$primary-color: $blu_ist_md;      // Sostituisci con il tuo colore primario
+$secondary-color: $red_sc;    // Sostituisci con il tuo colore secondario
+$accent-color: $grn_md;       // Sostituisci con il tuo colore accent
+$text-color: $grey_SC;
 $background-color: #FFFFFF;
+
+$footer-color: $blu_ist_lg;      // Sostituisci con il tuo colore footer
+$caption-color: $ylw_sc;   // Colore per le caption
+
 
 // Font del brand - Century Gothic
 $font-family-sans-serif: "Century Gothic", "CenturyGothic", AppleGothic, sans-serif;
@@ -46,9 +75,10 @@ $presentation-font-size-root: 36px;
 .reveal figcaption,
 .reveal .figure-caption {
   font-family: "Roboto Condensed", sans-serif;
-  font-size: 0.5em;
+  font-weight: 700; // Bold
+  font-size: 0.8em;
   font-weight: 300;
-  color: #666666;
+  color: $caption-color;
   margin-top: -0.5em;
 }
 
@@ -60,16 +90,30 @@ $presentation-font-size-root: 36px;
 
 // Footer styling
 .reveal .footer {
+  font-family: "Roboto Condensed", sans-serif;
   color: $footer-color;
-  font-size: 0.6em;
+  font-size: 0.5em;
 }
 
-// Logo styling
+// Logo styling - spostato un po' più a destra
 .reveal .slide-logo {
-  height: 80px;
+  height: 100px;
   width: auto;
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 40px;  // dal margine destro
+}
+
+// Slide number styling - dimensione normale e posizione corretta
+.reveal .slide-number {
+ // font-family: "Roboto Condensed", sans-serif;
+ color: $grey_sc !important;
+ // background-color: transparent !important;
+ // font-size: 0.5em !important;
+ // font-weight: 300 !important; // Regular
+  position: fixed !important;
+  bottom: 8px !important;
+  left: 80px !important;
+  top: auto !important;  // Forza a non stare in alto
 }
 

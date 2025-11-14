@@ -1,6 +1,7 @@
 ---
 title: "IA nelle Fondazioni Bancarie"
 subtitle: "(Resoconto del corso ACRI)"
+author: "**Luisa M. Mimmi**<br>(con estratti della presentazione di) **Fabio Fraticelli**"
 date: today
 date-format: "DD MMMM YYYY"
 metadata-files:
@@ -21,6 +22,7 @@ execute:
 - Footnote ^[the footnote text]
 - aside
 - speakers notes
+- [link](https://quarto.org/docs/presentations/revealjs/advanced.html)
 
 ::: aside
 Some additional commentary of more peripheral interest.
@@ -30,16 +32,18 @@ Some additional commentary of more peripheral interest.
 Speaker notes go here.
 :::
 
-## Il corso si è tenuto il 6/7 Novembre 2025 con questo programma
+## Programma del corso tenuto il 6/7 Novembre 2025
 
-::: {style="font-size: 85%;"}
+**L'IA al servizio delle Fondazioni di origine bancaria**
+
+::: {style="font-size: 70%;"}
 + **Giorno 1 (9:30 – 17:30)**
-	+ Introduzione all’AI
-	+ AI per analisi del contesto
-	+ AI per elaborazione di un bando
-	+ AI per la valutazione dei progetti
+	+ Introduzione all’IA
+	+ IA per analisi del contesto
+	+ IA per elaborazione di un bando
+	+ IA per la valutazione dei progetti
 + **Giorno 2 (9:00 – 13:00)**
-	+ AI per Monitoraggio / Valutazione Impatto
+	+ IA per Monitoraggio / Valutazione Impatto
 	+ Governance e strategie di adozione
 	+ Wrap-Up
 :::
@@ -49,17 +53,67 @@ Speaker notes go here.
 Speaker notes go here.
 :::
 
-## Il docente
+## [INSERT] Il docente
 
 <!-- insert slide 4 sua  -->
 
-## A che punto siamo con l'AI?
+## A che punto siamo con l'IA?
+
+
+::: aside
+Tra ottimismo e scetticismo...
+:::
+
 <!-- insert to pics side by side -->
 ::: {.columns}
 ::: {.column width="60%"}
-![Ciclo innovazioni](assets/innov_cycle.png){width="100%"}
+![Ciclo tipico innovazioni](assets/innov_cycle.png){width="100%"}
 :::
 ::: {.column width="40%"}
 ![Adozione di IA tra i presenti](assets/sondaggio.jpg){width="100%"}
 :::
 :::	
+
+
+## Cosa è l'Intelligenza Artificiale (IA)?
+
+## [INSERT] Il docente
+
+<!-- insert slide "Un lavoro" ... "La Gen-AI è" -->
+ 
+## Cosa \*non\* è l'IA?
+
+
+```{r}
+#| label: tbl-ia-examples
+#| tbl-cap: "Esempi di competenze dell'Intelligenza Umana vs Intelligenza Artificiale"
+#| echo: false
+#| output: true
+
+
+library(tibble)
+library(flextable)
+# Imposta font e dimensione di default per tutte le flextable
+set_flextable_defaults(
+  font.family = "Roboto Condensed",
+  # font.size = 20,
+  theme_fun = theme_booktabs
+)
+# Inserisci come tibble tribble una tabella con 2 colonne e intestazione "Intelligenza umana" "Intelligenza Artificiale", con 5 righe di esempi
+
+tabella_ia <- tribble(
+  ~"Competenza", ~"Intelligenza umana", ~"Intelligenza Artificiale",
+  "Capisce linguaggio naturale","✅", "☑️",
+  "Segue il filo del discorso", "✅", "⛔ / dipende dal modello (memorization context",
+  "Spazia da un contesto all'altro",  "✅", "☑️ / se aiutata"
+   
+)
+
+tabella_ia %>%
+  flextable() %>%
+  fontsize(size = 22, part = "header") %>%  # Header più grande
+  fontsize(size = 18, part = "body") %>%    # Body della tabella
+	bold(part = "header") %>%               # Grassetto per l'header
+  autofit()
+```
+

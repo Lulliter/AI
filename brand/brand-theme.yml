@@ -1,9 +1,10 @@
 format:
   revealjs:
     theme: [default, brand/custom.scss]
-    logo: brand/logo.jpg  # Sostituisci con il percorso del tuo logo
+    logo: brand/logo.jpg
     footer: "Fondazione Cariparma - Osservatorio Dati Sociali | {{< meta date >}}"
     slide-number: true
+    show-slide-number: all
     transition: fade
     background-transition: fade
     self-contained: true
