@@ -1,16 +1,15 @@
 /*-- scss:defaults --*/
 
-// Importa Google Font per caption narrow
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap');
+// Importa Google Font
+@import url('https://fonts.googleapis.com/css2?family=Century+Gothic&display=swap'); // brand but sucks
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap'); // narrow parts
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Roboto+Condensed:wght@400;700&display=swap");
 
 // Palette di colori disponibili
 $blu_ist_sc: #012432;
 $blu_ist_md: #2C5F8D;
 $blu_ist_lg: #5582A7;
-$blu_sc: #033c55;
-$blu_md: #005d82;
-$blu_lg: #5582a7;
 $grn_sc: #246864;
 $grn_md: #539d90;
 $grn_lg: #8eb9b1;
@@ -31,7 +30,7 @@ $grey_SC: #333333;
 
 // Colori del brand
 $primary-color: $blu_ist_md;      // Sostituisci con il tuo colore primario
-$secondary-color: $red_sc;    // Sostituisci con il tuo colore secondario
+$secondary-color: $red_md;    // Sostituisci con il tuo colore secondario
 $accent-color: $grn_md;       // Sostituisci con il tuo colore accent
 $text-color: $grey_SC;
 $background-color: #FFFFFF;
@@ -39,11 +38,17 @@ $background-color: #FFFFFF;
 $footer-color: $blu_ist_lg;      // Sostituisci con il tuo colore footer
 $caption-color: $ylw_sc;   // Colore per le caption
 
-
-// Font del brand - Century Gothic
-$font-family-sans-serif: "Century Gothic", "CenturyGothic", AppleGothic, sans-serif;
-$presentation-heading-font: "Century Gothic", "CenturyGothic", AppleGothic, sans-serif;
+// Font corpo
+$font-family-sans-serif: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+// Font titoli (solo per le heading, xchè da problemi di accenti)
+$presentation-heading-font: "Century Gothic", "CenturyGothic", AppleGothic,
+                            -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+// Font codice
+$font-family-monospace: "Fira Mono", monospace;
+// Dimensione base
 $presentation-font-size-root: 36px;
+
+
 
 /*-- scss:rules --*/
 
@@ -75,9 +80,8 @@ $presentation-font-size-root: 36px;
 .reveal figcaption,
 .reveal .figure-caption {
   font-family: "Roboto Condensed", sans-serif;
-  font-weight: 700; // Bold
-  font-size: 0.8em;
-  font-weight: 300;
+  font-weight: 500; // Bold
+  font-size: 0.85em;
   color: $caption-color;
   margin-top: -0.5em;
 }
@@ -88,10 +92,24 @@ $presentation-font-size-root: 36px;
   font-weight: 400; // Regular
 }
 
+/* --- Font per il codice (inline + blocchi) --- */
+code,
+pre,
+.reveal code,
+.reveal pre,
+.reveal .code,
+.reveal .sourceCode {
+  font-family: $font-family-monospace !important;
+  font-size: 0.85em;     /* facoltativo: riduce un po' la dimensione */
+  line-height: 1.35;     /* leggibilità migliore */
+  color: $grn_md; /* colore del testo del codice */
+}
+
+
 // Footer styling
 .reveal .footer {
   font-family: "Roboto Condensed", sans-serif;
-  color: $footer-color;
+  color: rgba($footer-color, 0.75);
   font-size: 0.5em;
 }
 

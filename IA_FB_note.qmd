@@ -23,6 +23,7 @@ execute:
 - aside
 - speakers notes
 - [link](https://quarto.org/docs/presentations/revealjs/advanced.html)
+- `Sys.time()`
 
 ::: aside
 Some additional commentary of more peripheral interest.
@@ -60,24 +61,31 @@ Speaker notes go here.
 ## A che punto siamo con l'IA?
 
 
-::: aside
 Tra ottimismo e scetticismo...
-:::
+
+
+<!-- insert to pics side by side -->
+
+
+![](assets/innov_cycle.png){width="65%"}
+
+
+## A che punto siamo con l'IA (nelle Fondazioni Bancarie)?
 
 <!-- insert to pics side by side -->
 ::: {.columns}
-::: {.column width="60%"}
-![Ciclo tipico innovazioni](assets/innov_cycle.png){width="100%"}
+::: {.column width="50%"}
+![Coffee break in ACRI](assets/caffe.jpg){width="65%"}
 :::
-::: {.column width="40%"}
-![Adozione di IA tra i presenti](assets/sondaggio.jpg){width="100%"}
+::: {.column width="50%"}
+![Adozione di IA tra i presenti](assets/sondaggio.jpg){width="65%"}
 :::
 :::	
 
 
 ## Cosa è l'Intelligenza Artificiale (IA)?
 
-## [INSERT] Il docente
+## [INSERT] 4 slide da "Un lavoro" a "La Gen-AI è"
 
 <!-- insert slide "Un lavoro" ... "La Gen-AI è" -->
  
@@ -102,11 +110,12 @@ set_flextable_defaults(
 # Inserisci come tibble tribble una tabella con 2 colonne e intestazione "Intelligenza umana" "Intelligenza Artificiale", con 5 righe di esempi
 
 tabella_ia <- tribble(
-  ~"Competenza", ~"Intelligenza umana", ~"Intelligenza Artificiale",
-  "Capisce linguaggio naturale","✅", "☑️",
-  "Segue il filo del discorso", "✅", "⛔ / dipende dal modello (memorization context",
-  "Spazia da un contesto all'altro",  "✅", "☑️ / se aiutata"
-   
+	~"Competenza", ~"Intelligenza umana", ~"Intelligenza Artificiale",
+	
+	"Capisce linguaggio naturale","✅", "☑️",
+	"Coglie sfumature e contesto","✅", "⛔ / dipende dal modello",
+	"Segue il filo di un discorso", "✅", "⛔ / dipende dal modello (memorization context)",
+	"Conosce i suoi limiti",  "✅", "⛔",
 )
 
 tabella_ia %>%
@@ -117,3 +126,39 @@ tabella_ia %>%
   autofit()
 ```
 
+::: {.notes}
+Io penso che più conosciamo l'IA, più ci stupiamo della IU.
+
++ _"Capisce linguaggio naturale"_   
++ _"Coglie sfumature e contesto"_  teniamo presente che noi abbiamo 5 sensi che ci aiutano, una storia personale, una consapevolezza di noi stessi ecc. L'IA non sa, non vede, non sente, non riconosce (A MENO DI QUELLO CHE GLI VIENE FORNITO)
++ _"Segue il filo di un discorso"_  DIpende dal modello (memorization context",
++ _"Spazia da un contesto all'altro"_  se aiutata"
+:::
+
+
+
+## Opportunità e rischi 
+
+
+
+## La necessità di circoscrivere un ruolo all'IA
+
+
+
+## Criteri per circoscrivere il ruolo dell'IA
+
+- Mi deve supportare nella decisione ma **non prendere decisioni** al mio posto
+		- es. valutazione progetti, diagnosi mediche, ecc.
+		- non è semplice come potrebbe sembrare: bias, errori, mancanza di contesto, ecc.
+
+- Decidere in modo intenzionale **per quali compiti** usare l'IA: aspetti noiosi o ripetitivi, compiti che richiedono l'analisi di grandi quantità di dati, ma non compiti che richiedono empatia, creatività o giudizio etico.		
+
+- **Quali dati** siamo disposti a dare in pasto **a quali modelli di IA**? 
+		- Qui entra la scelta del fornitore
+		- Garanzie di rispetto della privacy e sicurezza
+		- Coerenza con la normativa vigente (GDPR, ecc.)
+		
+- **Trasparenza**: sapere quando e come viene usata l'IA nei processi decisionali
+		- questi algoritmi sono coperti da segreto industriale, quindi non abbiamo accesso al "codice sorgente", per questo non è accettabile che l'IA prenda decisioni autonome senza supervisione umana
+		
+ 
