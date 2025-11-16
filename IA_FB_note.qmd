@@ -5,7 +5,7 @@ author: "**Luisa M. Mimmi**<br>(con estratti della presentazione di) **Fabio Fra
 date: today
 date-format: "DD MMMM YYYY"
 metadata-files:
-  - brand/brand-theme.yml
+  - brand/CRP-revealjs-theme.yml
 format: revealjs
   # revealjs:
   #   output-file: presentazione.pdf
