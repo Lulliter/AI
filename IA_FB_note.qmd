@@ -16,7 +16,6 @@ execute:
   freeze: auto
 ---
 
-
 ## Quarto
 
 - Footnote ^[the footnote text]
@@ -54,9 +53,11 @@ Speaker notes go here.
 Speaker notes go here.
 :::
 
-## [INSERT] Il docente
+## [INS] Docente {.notitle}
 
-<!-- insert slide 4 sua  -->
+![](bib/pagine/png/fabio.png){.r-stretch}
+
+ 
 
 ## A che punto siamo con l'IA?
 
@@ -83,20 +84,102 @@ Tra ottimismo e scetticismo...
 :::	
 
 
-## Cosa è l'Intelligenza Artificiale (IA)?
 
-## [INSERT] 4 slide da "Un lavoro" a "La Gen-AI è"
 
-<!-- insert slide "Un lavoro" ... "La Gen-AI è" -->
+
+# Cosa è l'Intelligenza Artificiale (IA)?
+
+## [INS] Una storia {.notitle}
+
+![](bib/pagine/png/unastoria.png){.r-stretch}
+
+::: {.notes}
+xxxxx
+:::
+## [INS] MLAI {.notitle}
+
+![](bib/pagine/png/mlai.png){.r-stretch}
+
+::: {.notes}
+**Machine learning**: A family of statistical and mathematical modeling techniques that uses a variety
+of approaches to automatically learn and improve the prediction of a target state, without explicit
+programming
+
+	+ **Computer programming**: The programmer knows what the input and output looks like 	and write code to transform input into output _FUNCTION_ that _processes_ an input and 	_produces_ an output
+	
+	+ **Machine learning**: The programmer (instead of coding the function) MAY provide 	_EXAMPLES_ of input-output pairs to a learning algorithm that _learns_ a model that 	_approximates_ the transformation from input to output (a.k.a. "training the model")
+		- \* hence the importance of exposure to experience / data
+	
+	+ _SUPERVISED learning_: we provide input and output pairs!!! (a.k.a. the right 	answers), then the MODEL can represent (model) the relationship between input and 	output adjusting a set of numbers (called PARAMETERS: weight, bias....) to minimize 	the error in predicting the output from the input
+	+ _UNSUPERVISED learning_: seeks to examine a collection of unlabeled examples and 	group them
+	by some notion of shared commonality.
+
+**Deep learning**: Deep learning models are ML models that organize parameters into hierarchical layers. Features (INPUTs) are multiplied and added together repeatedly, with the OUTPUT from one layer of parameters being fed into the next layer – before a prediction can be made. 
+	+ Il deep learning consente l’ingegnerizzazione automatica delle caratteristiche e raggiunge un’accuratezza superiore quando lavora con grandi set di dati.
+
+> In pratica, il DL procede con strati successivi di analisi dei dati (pixel, parole, ecc.), producendo, dopo ogni strato, una rappresentazione intermedia dei dati es. da pixel → bordi → forme → oggetti → concetti). Ciascuno strato è costituito da un insieme di neuroni artificiali, (nodi, i.e. mini modelli predittivi). Ogni strato elabora i dati in ingresso (combinazioni lineari pesate) e produce un output, che viene poi passato come input allo strato successivo ("deep" x i tanti livelli). In conclusione, l'ultimo strato fornisce l'output: un riconoscimento facciale, una diagnosi di patologia, una risposta del call center, la selezione di un candidato HR, l'identificazione di una transazione sospetta, ecc.
+
+:::
+
+
+## [INS] Captcha {.notitle}
+
+![](bib/pagine/png/accadeva.png){.r-stretch}
+
+::: {.notes}
+xxxxx
+:::
+
+## [INS] Zebra/reti neurali {.notitle}
+
+![](bib/pagine/png/allabase.png){.r-stretch}
+
+::: {.notes}
+xxxxx
+:::
+
+## [INS] FT {.notitle}
+
+![](bib/pagine/png/ft.png){.r-stretch}
+
+<br><br>
+
+::: aside
+Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale  
+[https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)
+
+:::
+
+::: {.notes}
+Gli LLM sono Deep Learning applicato al linguaggio.
+- Gli LLM usano principalmente Transformer (un tipo particolare di rete neurale) invece dei fully connected layers classici
+	- Input: parole/token (frammenti di testo)
+	- Strati intermedi: estraggono significati, relazioni grammaticali, concetti
+	- Output: previsione della prossima parola o risposta completa
+
+:::
+
+## 🟨 Agents.... 
+
+
+## Qualche esempio di utilizzo nel nostro ambito?
+
+<!-- Qui metterò una serie di prompts come quelli usati al corso ACRI -->
+ 
+- Analisi del contesto socio-economico di una regione
+- Elaborazione di un bando per finanziamenti
+- Valutazione dei progetti presentati
+- Monitoraggio e valutazione dell'impatto dei progetti finanziati
+<!-- - Governance e strategie di adozione dell'IA nelle Fondazioni -->
  
 ## Cosa \*non\* è l'IA?
-
 
 ```{r}
 #| label: tbl-ia-examples
 #| tbl-cap: "Esempi di competenze dell'Intelligenza Umana vs Intelligenza Artificiale"
 #| echo: false
 #| output: true
+
 
 
 library(tibble)
@@ -112,11 +195,12 @@ set_flextable_defaults(
 tabella_ia <- tribble(
 	~"Competenza", ~"Intelligenza umana", ~"Intelligenza Artificiale",
 	
-	"Capisce linguaggio naturale","✅", "☑️",
-	"Coglie sfumature e contesto","✅", "⛔ / dipende dal modello",
-	"Segue il filo di un discorso", "✅", "⛔ / dipende dal modello (memorization context)",
-	"Conosce i suoi limiti",  "✅", "⛔",
-)
+	"Capisce linguaggio naturale",    "✅", "☑️",
+	"Segue il filo del discorso",     "✅", "❌ / dipende dal modello",
+	"Spazia da un contesto all'altro","✅", "☑️ / se aiutata",
+	"Ha creatività e intuizione",     "✅", "❌ / imitazione",	
+	"Gestisce mole enorme di dati",   "❌", "✅"
+	)
 
 tabella_ia %>%
   flextable() %>%
@@ -126,26 +210,42 @@ tabella_ia %>%
   autofit()
 ```
 
-::: {.notes}
-Io penso che più conosciamo l'IA, più ci stupiamo della IU.
 
-+ _"Capisce linguaggio naturale"_   
-+ _"Coglie sfumature e contesto"_  teniamo presente che noi abbiamo 5 sensi che ci aiutano, una storia personale, una consapevolezza di noi stessi ecc. L'IA non sa, non vede, non sente, non riconosce (A MENO DI QUELLO CHE GLI VIENE FORNITO)
-+ _"Segue il filo di un discorso"_  DIpende dal modello (memorization context",
-+ _"Spazia da un contesto all'altro"_  se aiutata"
+
+
+## Una panoramica di modelli di IA rilevanti 
+
+- Modelli di linguaggio (LLM): GPT-4, PaLM, LLaMA
+- Modelli di visione artificiale: DALL-E, Stable Diffusion, Midjourney
+- Modelli multimodali: GPT-4V, CLIP
+- Modelli specializzati: Codex (programmazione), BioBERT (biomedicina), ecc.
+- Modelli open source vs proprietari
+- Piattaforme IA: OpenAI, Google Cloud AI, Azure AI, Hugging Face, ecc.
+
+## Considerazioni tecniche
+::: {style="font-size: 80%;"}
+- Questi modelli sono in continua evoluzione
+	- E.g. `GPT-2` inventava bibliografie fantastiche, `GPT-4/GPT-5` cercano un confronto più accurato con fonti reali
+- Ogni modello/piattaforma ha i suoi punti di forza e limiti
+	- `ChatGPT` è più versatile, `Perplexity` è meglio nelle ricerche web, `GitHub Copilot` è specializzato nel codice, `MS Copilot` nasce integrato con Office 365, ecc.
+- I modelli di IA possono specializzarsi su un tipo di dato (testo, immagini, audio, video) o essere multimodali (e.g. `GPT-4V`)
+- In realtà adesso moltissimi siti /applicazioni integrano funzionalità IA
+	- E.g. `Google`, `Grammarly`, `Notion`, `Canva```, ecc.
+- Diversità di performance in base al piano tariffario
 :::
 
+## Considerazioni etiche e di governance
 
-
-## Opportunità e rischi 
-
-
-
-## La necessità di circoscrivere un ruolo all'IA
-
-
+- _Bias_ (~ pregiudizio) intrinseco e/o copertura asimmetrica dei dati
+- Trasparenza e spiegabilità degli algoritmi
+- Privacy e sicurezza dei dati
+- Regolamentazione e conformità
+<!-- - Strategie di adozione responsabile dell'IA -->
+- Impatto sul lavoro e sulla società
+	- pericolo di _deskilling_ 
 
 ## Criteri per circoscrivere il ruolo dell'IA
+::: {style="font-size: 70%;"}
 
 - Mi deve supportare nella decisione ma **non prendere decisioni** al mio posto
 		- es. valutazione progetti, diagnosi mediche, ecc.
@@ -161,4 +261,24 @@ Io penso che più conosciamo l'IA, più ci stupiamo della IU.
 - **Trasparenza**: sapere quando e come viene usata l'IA nei processi decisionali
 		- questi algoritmi sono coperti da segreto industriale, quindi non abbiamo accesso al "codice sorgente", per questo non è accettabile che l'IA prenda decisioni autonome senza supervisione umana
 		
- 
+:::
+
+
+## Prossimi passi possibili
+::: {style="font-size: 75%;"}
+0. [Precursore logico: ottimizzare la gestione dei documenti/dati esistenti!]
+
+1. Comprendere le esigenze specifiche della Fondazione a livello delle varie funzioni (amministrativo, progettazione, monitoraggio, ecc.):   
+	- `Quale problema vorrei risolvere con l'IA?`   
+	- `Quale attività potrei automatizzare o migliorare con l'IA?` 
+2. Definire gli argini per salvaguardare funzioni caratterizzanti, sicurezza, ecc.:
+	- `Quali funzioni decisionali devono assolutamente restare "umane"?`
+	- `Quali standard di sicurezza e privacy sono imprescindibili?`
+
+3. Mappare e valutare le risorse disponibili: _make, buy, partner_
+	- Collaborare con ACRI e altre Fondazioni
+	- Sperimentare con progetti pilota
+	- Impostare un team dedicato all'IA
+
+:::
+
