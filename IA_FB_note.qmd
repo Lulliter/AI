@@ -121,16 +121,7 @@ programming
 
 :::
 
-
-## [INS] Captcha {.notitle}
-
-![](bib/pagine/png/accadeva.png){.r-stretch}
-
-::: {.notes}
-xxxxx
-:::
-
-## [INS] Zebra/reti neurali {.notitle}
+## [INS] Reti neurali alla base di `Generative AI` {.notitle}
 
 ![](bib/pagine/png/allabase.png){.r-stretch}
 
@@ -138,38 +129,219 @@ xxxxx
 xxxxx
 :::
 
-## [INS] FT {.notitle}
+## Il FT spiega `Generative LLM`
 
-![](bib/pagine/png/ft.png){.r-stretch}
+![_Financial Times_: `La storia dei Large Language Models (LLM)` <br>   [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)](assets/ft_generative.png) 
 
-<br><br>
+<!-- <br><br> -->
 
-::: aside
-Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale  
-[https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)
+<!-- ::: aside -->
+<!-- Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/) -->
 
-:::
+<!-- ::: -->
 
 ::: {.notes}
 Gli LLM sono Deep Learning applicato al linguaggio.
-- Gli LLM usano principalmente Transformer (un tipo particolare di rete neurale) invece dei fully connected layers classici
+- Gli LLM usano principalmente **Transformer** (un tipo particolare di rete neurale) invece dei fully connected layers classici
 	- Input: parole/token (frammenti di testo)
 	- Strati intermedi: estraggono significati, relazioni grammaticali, concetti
 	- Output: previsione della prossima parola o risposta completa
 
++ **Transformers (come GPT)**: predicono il prossimo token in una sequenza, generando testo token per token
 :::
 
-## 🟨 Agents.... 
 
 
-## Qualche esempio di utilizzo nel nostro ambito?
+## Dal `ML` ad `Agentic AI` (✉️)
+
+<br> 
+```{r}
+#| label: ai_taxonomy_1
+#| echo: false
+#| output: true
+
+library(tibble)
+library(flextable)
+
+# Schema ML → Generative → AI → Agent
+ai_taxonomy_1 <- tribble(
+  ~tipo, ~esempio_richiesta, ~tipo_algoritmo,  ~esempio_email,  ~esempio_brand, 
+  
+  "ML (classico)",      "Questa email è spam?", 
+  "Classificazione, Predizione, Riconoscimento", #
+  "Email → classificata come SPAM o NON-SPAM (etichetta)", "Outlook junk mail",
+  
+  "Generative AI",       "Rispondi a questa email", 
+  "Creazione, Generazione nuovi dati", #
+  "Email → genera bozza di risposta appropriata (tu la invii)", "ChatGPT",
+  
+  "AI (orchestrator)",       "Gestisci questa richiesta", 
+  "Orchestrazione multi-strumento", #
+  "Email → capisce richiesta, cerca dati necessari nel DB, genera report con allegati (tu rivedi e invii)", "ChatGPT Plus (plugins)",
+  
+  "Agent",       "Occupati delle email arretrate", 
+  "Pianificazione ed esecuzione multi-step", #
+  "Email → legge, cerca dati, genera report, allega file, INVIA risposta (persegue obiettivi in autonomia!)", "AutoGPT" 
+)
+
+# Visualizza
+# ai_taxonomy
+
+# Oppure con formattazione migliore
+ai_taxonomy_1 %>%
+	flextable() %>%
+	fontsize(size = 20, part = "header") %>%  # Header più grande
+	fontsize(size = 16, part = "body") %>%    # Body della tabella
+	bold(part = "header") %>%               # Grassetto per l'header
+	# Change format of the second & fourth column es_richiesta italics
+	flextable::italic(i = NULL, j = c(2,4), part = "body") %>%
+	flextable::color(i = NULL, j = c(2,4), color = "#9f4136", part = "body") %>%
+	# Change background of 1st column to light red
+	flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
+	flextable::bold(i = NULL, j = c(1,3), part = "body") %>%
+	# # Aggiungi footnote alla prima colonna (categoria)
+	# footnote(
+	# 	i = 1, j = 1,
+	# 	value = as_paragraph("In senso lato tutti questi modelli sono AI"),
+	# 	ref_symbols = "*",
+	# 	part = "header") %>%
+	# Cambia il testo nei header
+	flextable::set_header_labels(
+		tipo = "Categoria",
+		esempio_richiesta = "Esempio di richiesta",
+		tipo_algoritmo = "Tipo di algoritmo",
+		esempio_email = "Esempio di output",
+		esempio_brand = "Esempio di piattaforma"
+	) %>%
+	autofit() 
+	
+```
+
+
+::: aside
+[In senso lato, sono tutti modelli di **AI**]
+:::
+
+
+::: {.notes}
+
+Perché gli agenti sono effettivamente pericolosi:
+
+1. Azioni irreversibili nel mondo reale
+	- cancellare database, inviare email a migliaia di persone, fare transazioni finanziarie.
+2. Cascate di errori amplificati
+	- la query restituisce TUTTI i pazienti, non solo quelli dovuti e fa spam di email
+3. Allucinazioni con conseguenze reali
+	- inventa dati, numeri di telefono, indirizzi email, ecc.
+4. Disallineamento degli obiettivi
+	- l'agente interpreta male l'obiettivo e agisce in modi indesiderati
+5.  Mancanza di giudizio etico/contestuale
+	- non capisce le sfumature sociali, culturali o etiche
+	
+Come mitigare i rischi:
+- Supervisione umana costante ("_human-in-the-loop_")
+- Limitare le azioni possibili dell'agente ("_whitelisting_ azioni permesse")
+- Validazione e verifica dei risultati ("_checkpoints_ di sicurezza")
+
+:::
+
+
+## Dal `ML` ad `Agentic AI` (🤖)
+<br> 
+```{r}
+#| label: ai_taxonomy
+#| echo: false
+#| output: true
+
+library(tibble)
+library(flextable)
+
+# Schema ML → Generative → AI → Agent
+ai_taxonomy <- tribble(
+  ~tipo, ~es_richiesta,  ~tipo_algoritmo,  ~es_algoritmo, ~es_brand,
+  
+  "ML (classico)",   "Dimmi cos'è questo", 
+  "Classificazione, Predizione, Riconoscimento", #
+  "Regressione Logistica, Random Forest, Reti Neurali, XGBoost, SVM",
+  "Excel (previsioni), Outlook junk mail, Google Photos (riconoscimento)", # , scikit-learn, tidymodels, caret
+
+  "Generative AI",   "Creami qualcosa di simile", 
+  "Creazione, Generazione nuovi dati (testo, voce, immagini...)", #
+  "GPT (Transformer), Diffusion Models, GAN, VAE",
+  "ChatGPT, Outlook junk mail, DALL-E, Gemini", # , Copilot Designer, Midjourney, Stable Diffusion
+  
+  "AI (orchestrator)",  "Risolvi questo problema", 
+  "Orchestrazione multi-strumento", #
+  "Pipeline di ML + reasoning + planning, LLM + Tools + Reasoning",
+  "ChatGPT Plus (plugins), Claude (Projects), Perplexity", #, Claude (con tools), Gemini Advanced
+  
+  "Agent",   "Gestisci questo processo completo", 
+  "Pianificazione ed esecuzione multi-step",#
+  "ReAct (Reasoning + Acting), AutoGPT, Task Decomposition",
+  " AutoGPT, Microsoft Copilot (autonomous), Zapier AI" #, , n8n AI workflows, Claude Computer Use,LangChain Agents"
+)
+
+# Visualizza
+# ai_taxonomy
+
+# Oppure con formattazione migliore
+ai_taxonomy %>%
+	flextable() %>%
+	fontsize(size = 22, part = "header") %>%  # Header più grande
+	fontsize(size = 18, part = "body") %>%    # Body della tabella
+	bold(part = "header") %>%               # Grassetto per l'header
+	# Change format of the second & fourth column es_richiesta italics
+	flextable::italic(i = NULL, j = c(2,4 ), part = "body") %>%
+	flextable::color(i = NULL, j = c(2,4 ), color = "#9f4136", part = "body") %>%
+	# Change background of 1st column to light red
+	flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
+	flextable::bold(i = NULL, j = 1, part = "body") %>%
+	# Aggiungi footnote alla prima colonna (categoria)
+	footnote(
+		i = 1, j = 1,
+		value = as_paragraph("In senso lato tutti questi modelli sono AI"),
+		ref_symbols = "*",
+		part = "header") %>%
+		# Cambia il testo nei header
+	flextable::set_header_labels(
+		tipo = "Categoria",
+		es_richiesta = "Esempio di richiesta",
+		tipo_algoritmo = "Tipo di algoritmo",
+		es_algoritmo = "Esempio di output",
+		es_brand = "Esempio di piattaforma"
+	) %>%
+	autofit() 
+```
+
+::: {.notes}
++ **Transformers (come GPT)**: predicono il prossimo token in una sequenza, generando testo token per token
++ **GANs**: due reti che "competono" (generator vs discriminator)
++ **VAEs**: codificano dati in spazio latente e poi decodificano
++ **Diffusion models**: partono da rumore e iterativamente lo "denoising" verso l'immagine target
+:::
+
+
+## Esempio pratici calati nell'area erogativa di una fondazione
 
 <!-- Qui metterò una serie di prompts come quelli usati al corso ACRI -->
- 
-- Analisi del contesto socio-economico di una regione
-- Elaborazione di un bando per finanziamenti
-- Valutazione dei progetti presentati
-- Monitoraggio e valutazione dell'impatto dei progetti finanziati
+<br>
+
+::: {style="font-size: 80%;"} 
+
+- **Classificazione di titoli di progetti per settore**
+	 - [TIPO: `ML classico`] ➔ _etichettatura automatica_
+- **Elaborazione di un bando per finanziare corsi STEM**
+	 - [TIPO: `AI generativa`]  ➔ _bozza di bando_
+- **Valutazione e analisi dei progetti presentati**
+	 - [TIPO: `AI (orchestrator)`]  ➔ _revisione candidature con punteggio_
+- **Lancio di sondaggio di soddisfazione tra i beneficiari**
+	 - [TIPO: `Agente`]  ➔ _questionario creato e distribuito alla lista contatti_
+
+<!-- - Monitoraggio e valutazione dell'impatto dei progetti finanziati -> _sintesi report di monitoraggio_ -->
+<!-- 	 - [TIPO: `AI generativa` + `ML classico` ] -->
+	 
+:::
+
 <!-- - Governance e strategie di adozione dell'IA nelle Fondazioni -->
  
 ## Cosa \*non\* è l'IA?
@@ -211,16 +383,6 @@ tabella_ia %>%
 ```
 
 
-
-
-## Una panoramica di modelli di IA rilevanti 
-
-- Modelli di linguaggio (LLM): GPT-4, PaLM, LLaMA
-- Modelli di visione artificiale: DALL-E, Stable Diffusion, Midjourney
-- Modelli multimodali: GPT-4V, CLIP
-- Modelli specializzati: Codex (programmazione), BioBERT (biomedicina), ecc.
-- Modelli open source vs proprietari
-- Piattaforme IA: OpenAI, Google Cloud AI, Azure AI, Hugging Face, ecc.
 
 ## Considerazioni tecniche
 ::: {style="font-size: 80%;"}
@@ -266,19 +428,133 @@ tabella_ia %>%
 
 ## Prossimi passi possibili
 ::: {style="font-size: 75%;"}
-0. [Precursore logico: ottimizzare la gestione dei documenti/dati esistenti!]
+0. [Premesse logiche:] 
+	- ottimizzare la gestione dei documenti/dati esistenti
+	- avere un budget dedicato all'innovazione digitale / IA
 
-1. Comprendere le esigenze specifiche della Fondazione a livello delle varie funzioni (amministrativo, progettazione, monitoraggio, ecc.):   
+1. Comprendere le esigenze specifiche della Fondazione **per le varie funzioni** (amministrativo, progettazione, monitoraggio, ecc.):   
 	- `Quale problema vorrei risolvere con l'IA?`   
 	- `Quale attività potrei automatizzare o migliorare con l'IA?` 
-2. Definire gli argini per salvaguardare funzioni caratterizzanti, sicurezza, ecc.:
+	
+2. Stabilire **argini** per salvaguardare funzioni caratterizzanti, sicurezza, ecc.:
 	- `Quali funzioni decisionali devono assolutamente restare "umane"?`
 	- `Quali standard di sicurezza e privacy sono imprescindibili?`
 
-3. Mappare e valutare le risorse disponibili: _make, buy, partner_
+3. Mappare e valutare le **risorse disponibili** (_make, buy, or partner?_):
 	- Collaborare con ACRI e altre Fondazioni
 	- Sperimentare con progetti pilota
-	- Impostare un team dedicato all'IA
+	- Creare una task force dedicata all'IA (che continua a evolversi)
 
 :::
 
+::: {.notes}
+ ✅ **USO REALE e diffuso (anche oltre early adopters):**
+1. **Comunicazione e fundraising**
+- Bozze newsletter
+- Post social media
+- Traduzioni (IT↔EN per progetti EU)
+- Riscrittura testi per target diversi (es. stesso progetto → versione tecnica vs divulgativa)
+
+**Tool:** ChatGPT, Claude, DeepL (con AI)
+
+2. **Grant management - fase istruttoria**
+- Riassunto automatico candidature (centinaia di pagine)
+- Estrazione info chiave da application forms
+- Primo screening eligibility
+- Identificazione red flags
+
+**Tool:** Custom GPT, Claude Projects, alcuni tool specifici italiani (es. alcuni CRM fundraising stanno integrando)
+
+3. **Analisi dati e reportistica**
+- Sintesi report di monitoraggio progetti
+- Analisi trend su dati beneficiari
+- Visualizzazioni dati (con code generation)
+
+**Tool:** ChatGPT Advanced Data Analysis, Claude (con analisi dati)
+
+4. **Knowledge management interno**
+- Q&A su documentazione interna
+- Ricerca veloce in archivi progetti passati
+- Onboarding nuovi dipendenti
+
+**Tool:** Notion AI, Microsoft Copilot (per chi ha M365), custom RAG systems
+
+---
+
+🔬 **SPERIMENTAZIONE (solo early adopters):**
+
+5. **Valutazione impatto**
+- Analisi qualitativa interviste (centinaia di trascrizioni)
+- Pattern recognition in feedback beneficiari
+- Sentiment analysis su testimonianze
+
+**Problema:** Dati sensibili, serve privacy by design
+
+6. **Matchmaking progetti-finanziatori**
+- "Trova fondazioni compatibili con questo progetto"
+- "Suggerisci progetti nel portfolio simili a questo nuovo"
+
+**Tool:** Sistemi custom, alcuni vendor stanno sviluppando
+
+7. **Due diligence automatizzata**
+- Check reputazione organizzazioni beneficiarie
+- Verifica coerenza budget/attività
+- Red flags nei bilanci
+
+**Problema:** Rischio di bias, serve validazione umana
+
+---
+
+❌ **QUASI ASSENTE (troppo rischioso/complesso):**
+
+8. **Decisioni automatizzate su funding**
+- Scoring automatico candidature bandi
+→ Troppo rischioso (bias, accountability, trasparenza)
+
+9. **Agenti autonomi**
+Es. "Gestisci autonomamente il processo di grant"
+→ Nessuno lo sta facendo seriamente
+:::
+
+# 🟨 EXTRA 🟨
+
+## [INS] FT {.notitle}
+
+![](bib/pagine/png/ft.png){.r-stretch}
+
+<br><br>
+
+::: aside
+Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale  
+[https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)
+
+:::
+
+::: {.notes}
+Gli LLM sono Deep Learning applicato al linguaggio.
+- Gli LLM usano principalmente Transformer (un tipo particolare di rete neurale) invece dei fully connected layers classici
+	- Input: parole/token (frammenti di testo)
+	- Strati intermedi: estraggono significati, relazioni grammaticali, concetti
+	- Output: previsione della prossima parola o risposta completa
+
+:::
+
+
+## [INS] Captcha {.notitle}
+
+![](bib/pagine/png/accadeva.png){.r-stretch}
+
+::: {.notes}
+xxxxx
+:::
+
+
+
+## Una panoramica di modelli di IA rilevanti 
+
+- Modelli di linguaggio (LLM): GPT-4, PaLM, LLaMA
+- Modelli di visione artificiale: DALL-E, Stable Diffusion, Midjourney
+- Modelli multimodali: GPT-4V, CLIP
+- Modelli specializzati: Codex (programmazione), BioBERT (biomedicina), ecc.
+- Modelli open source vs proprietari
+- Piattaforme IA: OpenAI, Google Cloud AI, Azure AI, Hugging Face, ecc.

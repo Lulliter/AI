@@ -8,7 +8,7 @@
 
 // Palette di colori disponibili
 $blu_ist_sc: #012432;
-$blu_ist_md: #2C5F8D; // primary
+$blu_ist_md: #2C5F8D; // primary & aside
 $blu_ist_lg: #5582A7; // footer
 $grn_sc: #246864;
 $grn_md: #539d90;     // accent
@@ -70,7 +70,7 @@ $presentation-font-size-root: 36px;
 // Aside styling - Regular Italic
 .reveal aside:not(.aside-footnotes) {
   font-style: italic;
-  color: $pur_md !important;
+  color: $blu_ist_md !important;
   font-weight: 400; // Regular
 }
 // Footnote styling - grigio, piccolo e normale
