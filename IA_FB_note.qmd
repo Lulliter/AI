@@ -16,7 +16,8 @@ execute:
   freeze: auto
 ---
 
-## Quarto
+<!-- # hide a slide -->
+## Quarto {visibility="hidden"}
 
 - Footnote ^[the footnote text]
 - aside
@@ -89,45 +90,88 @@ Tra ottimismo e scetticismo...
 
 # Cosa è l'Intelligenza Artificiale (IA)?
 
-## [INS] Una storia {.notitle}
+## [INS] Un lavoro di oltre 70 anni {.notitle}
 
 ![](bib/pagine/png/unastoria.png){.r-stretch}
 
 ::: {.notes}
 xxxxx
 :::
-## [INS] MLAI {.notitle}
 
-![](bib/pagine/png/mlai.png){.r-stretch}
+
+## La Gen AI è solo una parte
+
+<!-- https://k21academy.com/ai-ml/what-is-generative-ai/ -->
+
+::: {columns}
+
+::: {.column width="40%"}
+
+::: {style="font-size: 55%;"}
+**AI** = Insieme di tecniche e metodi che svolgono compiti tipici dell'intelligenza umana (ragionamento, apprendimento, comprensione del linguaggio naturale, ecc.)
+
+**ML** = Sottoinsieme di modelli IA "allenati" (senza istruzioni esplicite) a riconoscere strutture nei dati / fare previsioni / raccomandare decisioni
+
+<!-- viene meno la distinzione tra programmazione tradizionale e apprendimento automatico -->
+
+**DL** =  i modelli DL apprendono a mappare input a output attraverso molteplici strati di parametri (reti neurali profonde) che estraggono caratteristiche complesse dai dati
+<!-- Questo —trati successivi che estraggono caratteristiche e un algoritmo che aggiusta i pesi con backpropagation + gradient descent — è la base di tutta l’IA neurale moderna, sia:  DISCRIMINATIVA CHE GENERATIVA (se aggiungi un livello di decodifica che produce ...) -->
+
+**Gen AI** = Invece che rispondere agli input con output predeterminati, i modelli generativi creano nuovi contenuti (testo, immagini, audio, video) simili ai dati su cui sono stati addestrati
+
+<!-- “All’aumentare della complessità — dal machine learning tradizionale al deep learning, fino alla generative AI — crescono anche i costi: servono molti più dati, modelli molto più grandi e una capacità di calcolo enormemente superiore per addestrarli e mantenerli operativi.” -->
+:::
+:::
+
+::: {.column width="55%"}
+![](assets/AI_bubbles.png)
+:::
+
+:::
 
 ::: {.notes}
-**Machine learning**: A family of statistical and mathematical modeling techniques that uses a variety
-of approaches to automatically learn and improve the prediction of a target state, without explicit
-programming
-
-	+ **Computer programming**: The programmer knows what the input and output looks like 	and write code to transform input into output _FUNCTION_ that _processes_ an input and 	_produces_ an output
+- **Computer programming** : The programmer knows what the input and output looks like and write code to transform input into output _FUNCTION_ that _processes_ an input and _produces_ an output
 	
-	+ **Machine learning**: The programmer (instead of coding the function) MAY provide 	_EXAMPLES_ of input-output pairs to a learning algorithm that _learns_ a model that 	_approximates_ the transformation from input to output (a.k.a. "training the model")
-		- \* hence the importance of exposure to experience / data
+- **Machine learning** : The programmer (instead of coding the function) MAY provide 	_EXAMPLES_ of input-output pairs to a learning algorithm that _learns_ a model that 	_approximates_ the transformation from input to output (a.k.a. "training the model") --  hence the importance of exposure to experience / data
 	
-	+ _SUPERVISED learning_: we provide input and output pairs!!! (a.k.a. the right 	answers), then the MODEL can represent (model) the relationship between input and 	output adjusting a set of numbers (called PARAMETERS: weight, bias....) to minimize 	the error in predicting the output from the input
-	+ _UNSUPERVISED learning_: seeks to examine a collection of unlabeled examples and 	group them
+	+ _SUPERVISED learning_ : we provide input and output pairs!!! (a.k.a. the right 	answers), then the MODEL can represent (model) the relationship between input and 	output adjusting a set of numbers (called PARAMETERS: weight, bias....) to minimize 	the error in predicting the output from the input
+	+ _UNSUPERVISED learning_ : seeks to examine a collection of unlabeled examples and 	group them
 	by some notion of shared commonality.
 
-**Deep learning**: Deep learning models are ML models that organize parameters into hierarchical layers. Features (INPUTs) are multiplied and added together repeatedly, with the OUTPUT from one layer of parameters being fed into the next layer – before a prediction can be made. 
+- **Deep learning**: Deep learning models are ML models that organize parameters into hierarchical layers. Features (INPUTs) are multiplied and added together repeatedly, with the OUTPUT from one layer of parameters being fed into the next layer – before a prediction can be made.
 	+ Il deep learning consente l’ingegnerizzazione automatica delle caratteristiche e raggiunge un’accuratezza superiore quando lavora con grandi set di dati.
 
-> In pratica, il DL procede con strati successivi di analisi dei dati (pixel, parole, ecc.), producendo, dopo ogni strato, una rappresentazione intermedia dei dati es. da pixel → bordi → forme → oggetti → concetti). Ciascuno strato è costituito da un insieme di neuroni artificiali, (nodi, i.e. mini modelli predittivi). Ogni strato elabora i dati in ingresso (combinazioni lineari pesate) e produce un output, che viene poi passato come input allo strato successivo ("deep" x i tanti livelli). In conclusione, l'ultimo strato fornisce l'output: un riconoscimento facciale, una diagnosi di patologia, una risposta del call center, la selezione di un candidato HR, l'identificazione di una transazione sospetta, ecc.
+> In pratica, il DL procede con strati successivi di analisi dei dati (pixel, parole, ecc.), producendo, dopo ogni strato, una rappresentazione intermedia dei dati es. da pixel → bordi → forme → oggetti → concetti). Ciascuno strato è costituito da un insieme di **neuroni** artificiali, (nodi, i.e. mini modelli predittivi). Ogni strato elabora i dati in ingresso (combinazioni lineari pesate) e produce un **output** intermedio, che viene poi passato come input allo strato successivo ("deep" x i tanti livelli). In conclusione, l'ultimo strato fornisce l'**output**: un riconoscimento facciale, una diagnosi di patologia, una risposta del call center, la selezione di un candidato HR, l'identificazione di una transazione sospetta, ecc.
 
 :::
 
-## [INS] Reti neurali alla base di `Generative AI` {.notitle}
+## Focus: Deep Learning
 
-![](bib/pagine/png/allabase.png){.r-stretch}
 
-::: {.notes}
-xxxxx
-:::
+<!-- ![](assets/Neuron.png){.absolute left=0 width="30%"} -->
+ 
+ 
+:::: {style="font-size: 55%;"} 
+`Strati` successivi analizzano dati in ingresso (e.g. pixel, parole) tramite un insieme di `neuroni` (i.e. mini modelli predittivi). Ogni strato produce un **output intermedio**, che diventa **input** dello strato successivo. L'algoritmo confronta l'**output finale** con esempi noti e "aggiusta" i pesi dei neuroni per minimizzare l'errore. 
+<!-- Forward propagation (andata e previsione)
+Backpropagation l’errore finale viene fatto retrocedere strato per strato, e in ciascuno strato vengono aggiornati tutti i pesi dei neuroni.  ottimizzato con `gradient descent`. -->
+
++ `deep learning`, si riferisce al N. di strati
++ Esempio: `pixel → bordi → forme complesse → oggetti → personaggio`
++ Esempio: `token → peso emotivo → relazione tra parole → Sentimento Positiva/Negativa`
+::::
+
+
+![](assets/DeepLearning.jpg){.absolute width="80%"}
+ 
+
+<!-- ## [INS] Reti neurali alla base di `Generative AI` {.notitle} -->
+
+<!-- ![](bib/pagine/png/allabase.png){.r-stretch} -->
+
+<!-- ::: {.notes} -->
+<!-- xxxxx -->
+<!-- ::: -->
 
 ## Il FT spiega `Generative LLM`
 
@@ -165,23 +209,23 @@ library(flextable)
 
 # Schema ML → Generative → AI → Agent
 ai_taxonomy_1 <- tribble(
-  ~tipo, ~esempio_richiesta, ~tipo_algoritmo,  ~esempio_email,  ~esempio_brand, 
-  
-  "ML (classico)",      "Questa email è spam?", 
-  "Classificazione, Predizione, Riconoscimento", #
-  "Email → classificata come SPAM o NON-SPAM (etichetta)", "Outlook junk mail",
-  
-  "Generative AI",       "Rispondi a questa email", 
-  "Creazione, Generazione nuovi dati", #
-  "Email → genera bozza di risposta appropriata (tu la invii)", "ChatGPT",
-  
-  "AI (orchestrator)",       "Gestisci questa richiesta", 
-  "Orchestrazione multi-strumento", #
-  "Email → capisce richiesta, cerca dati necessari nel DB, genera report con allegati (tu rivedi e invii)", "ChatGPT Plus (plugins)",
-  
-  "Agent",       "Occupati delle email arretrate", 
-  "Pianificazione ed esecuzione multi-step", #
-  "Email → legge, cerca dati, genera report, allega file, INVIA risposta (persegue obiettivi in autonomia!)", "AutoGPT" 
+  ~tipo                                                                                                        , ~esempio_richiesta               , ~tipo_algoritmo , ~esempio_email , ~esempio_brand ,
+
+  "ML (classico)"                                                                                              , "Questa email è spam?"          ,
+  "Classificazione, Predizione, Riconoscimento"                                                                , #
+  "Email → classificata come SPAM o NON-SPAM (etichetta)"                                                    , "Outlook junk mail"              ,
+
+  "Generative AI"                                                                                              , "Rispondi a questa email"        ,
+  "Creazione, Generazione nuovi dati"                                                                          , #
+  "Email → genera bozza di risposta appropriata (tu la invii)"                                               , "ChatGPT"                        ,
+
+  "AI (orchestrator)"                                                                                          , "Gestisci questa richiesta"      ,
+  "Orchestrazione multi-strumento"                                                                             , #
+  "Email → capisce richiesta, cerca dati necessari nel DB, genera report con allegati (tu rivedi e invii)"   , "ChatGPT Plus (plugins)"         ,
+
+  "Agent"                                                                                                      , "Occupati delle email arretrate" ,
+  "Pianificazione ed esecuzione multi-step"                                                                    , #
+  "Email → legge, cerca dati, genera report, allega file, INVIA risposta (persegue obiettivi in autonomia!)" , "AutoGPT"
 )
 
 # Visualizza
@@ -189,32 +233,32 @@ ai_taxonomy_1 <- tribble(
 
 # Oppure con formattazione migliore
 ai_taxonomy_1 %>%
-	flextable() %>%
-	fontsize(size = 20, part = "header") %>%  # Header più grande
-	fontsize(size = 16, part = "body") %>%    # Body della tabella
-	bold(part = "header") %>%               # Grassetto per l'header
-	# Change format of the second & fourth column es_richiesta italics
-	flextable::italic(i = NULL, j = c(2,4), part = "body") %>%
-	flextable::color(i = NULL, j = c(2,4), color = "#9f4136", part = "body") %>%
-	# Change background of 1st column to light red
-	flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
-	flextable::bold(i = NULL, j = c(1,3), part = "body") %>%
-	# # Aggiungi footnote alla prima colonna (categoria)
-	# footnote(
-	# 	i = 1, j = 1,
-	# 	value = as_paragraph("In senso lato tutti questi modelli sono AI"),
-	# 	ref_symbols = "*",
-	# 	part = "header") %>%
-	# Cambia il testo nei header
-	flextable::set_header_labels(
-		tipo = "Categoria",
-		esempio_richiesta = "Esempio di richiesta",
-		tipo_algoritmo = "Tipo di algoritmo",
-		esempio_email = "Esempio di output",
-		esempio_brand = "Esempio di piattaforma"
-	) %>%
-	autofit() 
-	
+  flextable() %>%
+  fontsize(size = 20, part = "header") %>% # Header più grande
+  fontsize(size = 16, part = "body") %>% # Body della tabella
+  bold(part = "header") %>% # Grassetto per l'header
+  # Change format of the second & fourth column es_richiesta italics
+  flextable::italic(i = NULL, j = c(2, 4), part = "body") %>%
+  flextable::color(i = NULL, j = c(2, 4), color = "#9f4136", part = "body") %>%
+  # Change background of 1st column to light red
+  flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
+  flextable::bold(i = NULL, j = c(1, 3), part = "body") %>%
+  # # Aggiungi footnote alla prima colonna (categoria)
+  # footnote(
+  # 	i = 1, j = 1,
+  # 	value = as_paragraph("In senso lato tutti questi modelli sono AI"),
+  # 	ref_symbols = "*",
+  # 	part = "header") %>%
+  # Cambia il testo nei header
+  flextable::set_header_labels(
+    tipo = "Categoria",
+    esempio_richiesta = "Esempio di richiesta",
+    tipo_algoritmo = "Tipo di algoritmo",
+    esempio_email = "Esempio di output",
+    esempio_brand = "Esempio di piattaforma"
+  ) %>%
+  autofit()
+
 ```
 
 
@@ -258,26 +302,26 @@ library(flextable)
 
 # Schema ML → Generative → AI → Agent
 ai_taxonomy <- tribble(
-  ~tipo, ~es_richiesta,  ~tipo_algoritmo,  ~es_algoritmo, ~es_brand,
-  
-  "ML (classico)",   "Dimmi cos'è questo", 
-  "Classificazione, Predizione, Riconoscimento", #
-  "Regressione Logistica, Random Forest, Reti Neurali, XGBoost, SVM",
-  "Excel (previsioni), Outlook junk mail, Google Photos (riconoscimento)", # , scikit-learn, tidymodels, caret
+  ~tipo                                                                   , ~es_richiesta                       , ~tipo_algoritmo , ~es_algoritmo , ~es_brand ,
 
-  "Generative AI",   "Creami qualcosa di simile", 
-  "Creazione, Generazione nuovi dati (testo, voce, immagini...)", #
-  "GPT (Transformer), Diffusion Models, GAN, VAE",
-  "ChatGPT, Outlook junk mail, DALL-E, Gemini", # , Copilot Designer, Midjourney, Stable Diffusion
-  
-  "AI (orchestrator)",  "Risolvi questo problema", 
-  "Orchestrazione multi-strumento", #
-  "Pipeline di ML + reasoning + planning, LLM + Tools + Reasoning",
-  "ChatGPT Plus (plugins), Claude (Projects), Perplexity", #, Claude (con tools), Gemini Advanced
-  
-  "Agent",   "Gestisci questo processo completo", 
-  "Pianificazione ed esecuzione multi-step",#
-  "ReAct (Reasoning + Acting), AutoGPT, Task Decomposition",
+  "ML (classico)"                                                         , "Dimmi cos'è questo"               ,
+  "Classificazione, Predizione, Riconoscimento"                           , #
+  "Regressione Logistica, Random Forest, Reti Neurali, XGBoost, SVM"      ,
+  "Excel (previsioni), Outlook junk mail, Google Photos (riconoscimento)" , # , scikit-learn, tidymodels, caret
+
+  "Generative AI"                                                         , "Creami qualcosa di simile"         ,
+  "Creazione, Generazione nuovi dati (testo, voce, immagini...)"          , #
+  "GPT (Transformer), Diffusion Models, GAN, VAE"                         ,
+  "ChatGPT, Outlook junk mail, DALL-E, Gemini"                            , # , Copilot Designer, Midjourney, Stable Diffusion
+
+  "AI (orchestrator)"                                                     , "Risolvi questo problema"           ,
+  "Orchestrazione multi-strumento"                                        , #
+  "Pipeline di ML + reasoning + planning, LLM + Tools + Reasoning"        ,
+  "ChatGPT Plus (plugins), Claude (Projects), Perplexity"                 , #, Claude (con tools), Gemini Advanced
+
+  "Agent"                                                                 , "Gestisci questo processo completo" ,
+  "Pianificazione ed esecuzione multi-step"                               , #
+  "ReAct (Reasoning + Acting), AutoGPT, Task Decomposition"               ,
   " AutoGPT, Microsoft Copilot (autonomous), Zapier AI" #, , n8n AI workflows, Claude Computer Use,LangChain Agents"
 )
 
@@ -286,31 +330,33 @@ ai_taxonomy <- tribble(
 
 # Oppure con formattazione migliore
 ai_taxonomy %>%
-	flextable() %>%
-	fontsize(size = 22, part = "header") %>%  # Header più grande
-	fontsize(size = 18, part = "body") %>%    # Body della tabella
-	bold(part = "header") %>%               # Grassetto per l'header
-	# Change format of the second & fourth column es_richiesta italics
-	flextable::italic(i = NULL, j = c(2,4 ), part = "body") %>%
-	flextable::color(i = NULL, j = c(2,4 ), color = "#9f4136", part = "body") %>%
-	# Change background of 1st column to light red
-	flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
-	flextable::bold(i = NULL, j = 1, part = "body") %>%
-	# Aggiungi footnote alla prima colonna (categoria)
-	footnote(
-		i = 1, j = 1,
-		value = as_paragraph("In senso lato tutti questi modelli sono AI"),
-		ref_symbols = "*",
-		part = "header") %>%
-		# Cambia il testo nei header
-	flextable::set_header_labels(
-		tipo = "Categoria",
-		es_richiesta = "Esempio di richiesta",
-		tipo_algoritmo = "Tipo di algoritmo",
-		es_algoritmo = "Esempio di output",
-		es_brand = "Esempio di piattaforma"
-	) %>%
-	autofit() 
+  flextable() %>%
+  fontsize(size = 22, part = "header") %>% # Header più grande
+  fontsize(size = 18, part = "body") %>% # Body della tabella
+  bold(part = "header") %>% # Grassetto per l'header
+  # Change format of the second & fourth column es_richiesta italics
+  flextable::italic(i = NULL, j = c(2, 4), part = "body") %>%
+  flextable::color(i = NULL, j = c(2, 4), color = "#9f4136", part = "body") %>%
+  # Change background of 1st column to light red
+  flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
+  flextable::bold(i = NULL, j = 1, part = "body") %>%
+  # Aggiungi footnote alla prima colonna (categoria)
+  footnote(
+    i = 1,
+    j = 1,
+    value = as_paragraph("In senso lato tutti questi modelli sono AI"),
+    ref_symbols = "*",
+    part = "header"
+  ) %>%
+  # Cambia il testo nei header
+  flextable::set_header_labels(
+    tipo = "Categoria",
+    es_richiesta = "Esempio di richiesta",
+    tipo_algoritmo = "Tipo di algoritmo",
+    es_algoritmo = "Esempio di output",
+    es_brand = "Esempio di piattaforma"
+  ) %>%
+  autofit()
 ```
 
 ::: {.notes}
@@ -352,8 +398,6 @@ ai_taxonomy %>%
 #| echo: false
 #| output: true
 
-
-
 library(tibble)
 library(flextable)
 # Imposta font e dimensione di default per tutte le flextable
@@ -365,20 +409,20 @@ set_flextable_defaults(
 # Inserisci come tibble tribble una tabella con 2 colonne e intestazione "Intelligenza umana" "Intelligenza Artificiale", con 5 righe di esempi
 
 tabella_ia <- tribble(
-	~"Competenza", ~"Intelligenza umana", ~"Intelligenza Artificiale",
-	
-	"Capisce linguaggio naturale",    "✅", "☑️",
-	"Segue il filo del discorso",     "✅", "❌ / dipende dal modello",
-	"Spazia da un contesto all'altro","✅", "☑️ / se aiutata",
-	"Ha creatività e intuizione",     "✅", "❌ / imitazione",	
-	"Gestisce mole enorme di dati",   "❌", "✅"
-	)
+  ~"Competenza"                     , ~"Intelligenza umana" , ~"Intelligenza Artificiale" ,
+
+  "Capisce linguaggio naturale"     , "✅"                 , "☑️"                    ,
+  "Segue il filo del discorso"      , "✅"                 , "❌ / dipende dal modello" ,
+  "Spazia da un contesto all'altro" , "✅"                 , "☑️ / se aiutata"       ,
+  "Ha creatività e intuizione"     , "✅"                 , "❌ / imitazione"          ,
+  "Gestisce mole enorme di dati"    , "❌"                 , "✅"
+)
 
 tabella_ia %>%
   flextable() %>%
-  fontsize(size = 22, part = "header") %>%  # Header più grande
-  fontsize(size = 18, part = "body") %>%    # Body della tabella
-	bold(part = "header") %>%               # Grassetto per l'header
+  fontsize(size = 22, part = "header") %>% # Header più grande
+  fontsize(size = 18, part = "body") %>% # Body della tabella
+  bold(part = "header") %>% # Grassetto per l'header
   autofit()
 ```
 
