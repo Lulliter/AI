@@ -16,22 +16,6 @@ execute:
   freeze: auto
 ---
 
-<!-- # hide a slide -->
-## Quarto {visibility="hidden"}
-
-- Footnote ^[the footnote text]
-- aside
-- speakers notes
-- [link](https://quarto.org/docs/presentations/revealjs/advanced.html)
-- `Sys.time()`
-
-::: aside
-Some additional commentary of more peripheral interest.
-:::
-
-::: {.notes}
-Speaker notes go here.
-:::
 
 ## Programma del corso tenuto il 6/7 Novembre 2025
 
@@ -107,19 +91,26 @@ xxxxx
 
 ::: {.column width="40%"}
 
-::: {style="font-size: 55%;"}
-**AI** = Insieme di tecniche e metodi che svolgono compiti tipici dell'intelligenza umana (ragionamento, apprendimento, comprensione del linguaggio naturale, ecc.)
+::: {style="font-size: 60%;"}
+::: {.fragment}
+**AI**: Insieme di tecniche che svolgono compiti tipici dell'intelligenza umana
+<!-- (ragionamento, apprendimento, comprensione del linguaggio naturale, ecc.) -->
+:::
 
-**ML** = Sottoinsieme di modelli IA "allenati" (senza istruzioni esplicite) a riconoscere strutture nei dati / fare previsioni / raccomandare decisioni
-
+::: {.fragment}
+**ML**: Modelli allenati su dati senza istruzioni esplicite — riconoscono pattern, fanno previsioni
 <!-- viene meno la distinzione tra programmazione tradizionale e apprendimento automatico -->
+:::
 
-**DL** =  i modelli DL apprendono a mappare input a output attraverso molteplici strati di parametri (reti neurali profonde) che estraggono caratteristiche complesse dai dati
-<!-- Questo —trati successivi che estraggono caratteristiche e un algoritmo che aggiusta i pesi con backpropagation + gradient descent — è la base di tutta l’IA neurale moderna, sia:  DISCRIMINATIVA CHE GENERATIVA (se aggiungi un livello di decodifica che produce ...) -->
+::: {.fragment}
+**DL**: Reti neurali profonde con strati multipli che estraggono caratteristiche complesse dai dati
+<!-- Questo strati successivi che estraggono caratteristiche e un algoritmo che aggiusta i pesi con backpropagation + gradient descent — è la base di tutta l’IA neurale moderna, sia:  DISCRIMINATIVA CHE GENERATIVA (se aggiungi un livello di decodifica che produce ...) -->
+:::
 
-**Gen AI** = Invece che rispondere agli input con output predeterminati, i modelli generativi creano nuovi contenuti (testo, immagini, audio, video) simili ai dati su cui sono stati addestrati
-
+::: {.fragment}
+**GenAI**: Invece che output predefiniti, creano nuovi contenuti (testo, immagini, audio) simili ai dati di addestramento
 <!-- “All’aumentare della complessità — dal machine learning tradizionale al deep learning, fino alla generative AI — crescono anche i costi: servono molti più dati, modelli molto più grandi e una capacità di calcolo enormemente superiore per addestrarli e mantenerli operativi.” -->
+:::
 :::
 :::
 
@@ -145,18 +136,18 @@ xxxxx
 
 :::
 
-## Focus: Deep Learning
+## La rivoluzione: Deep Neural Networks
 
 
 <!-- ![](assets/Neuron.png){.absolute left=0 width="30%"} -->
  
  
-:::: {style="font-size: 55%;"} 
-`Strati` successivi analizzano dati in ingresso (e.g. pixel, parole) tramite un insieme di `neuroni` (i.e. mini modelli predittivi). Ogni strato produce un **output intermedio**, che diventa **input** dello strato successivo. L'algoritmo confronta l'**output finale** con esempi noti e "aggiusta" i pesi dei neuroni per minimizzare l'errore. 
+:::: {style="font-size: 45%;"} 
+Ogni `strato` analizza dati in ingresso (e.g. pixel, parole) tramite un insieme di `neuroni` (i.e. mini modelli predittivi) -> produce un **output intermedio** -> che fa da **input** dello strato successivo. L'algoritmo confronta l'**output finale** con esempi noti e "aggiusta" i pesi dei neuroni per minimizzare l'errore. 
 <!-- Forward propagation (andata e previsione)
 Backpropagation l’errore finale viene fatto retrocedere strato per strato, e in ciascuno strato vengono aggiornati tutti i pesi dei neuroni.  ottimizzato con `gradient descent`. -->
+<!-- + `deep learning`, si riferisce al N. di strati -->
 
-+ `deep learning`, si riferisce al N. di strati
 + Esempio: `pixel → bordi → forme complesse → oggetti → personaggio`
 + Esempio: `token → peso emotivo → relazione tra parole → Sentimento Positiva/Negativa`
 ::::
@@ -169,9 +160,9 @@ Backpropagation l’errore finale viene fatto retrocedere strato per strato, e i
 
 <!-- ![](bib/pagine/png/allabase.png){.r-stretch} -->
 
-<!-- ::: {.notes} -->
-<!-- xxxxx -->
-<!-- ::: -->
+::: {.notes}
+DAtapizza : ret neurali https://www.youtube.com/watch?v=H8r8aGFBnXk
+:::
 
 ## Il FT spiega `Generative LLM`
 
@@ -198,7 +189,6 @@ Gli LLM sono Deep Learning applicato al linguaggio.
 
 ## Dal `ML` ad `Agentic AI` (✉️)
 
-<br> 
 ```{r}
 #| label: ai_taxonomy_1
 #| echo: false
@@ -291,7 +281,7 @@ Come mitigare i rischi:
 
 
 ## Dal `ML` ad `Agentic AI` (🤖)
-<br> 
+
 ```{r}
 #| label: ai_taxonomy
 #| echo: false
@@ -426,6 +416,12 @@ tabella_ia %>%
   autofit()
 ```
 
+## Esempi di "prompt engineering" 
+
+1. ...
+2. ...
+3. ...
+4. ...
 
 
 ## Considerazioni tecniche
@@ -436,7 +432,7 @@ tabella_ia %>%
 	- `ChatGPT` è più versatile, `Perplexity` è meglio nelle ricerche web, `GitHub Copilot` è specializzato nel codice, `MS Copilot` nasce integrato con Office 365, ecc.
 - I modelli di IA possono specializzarsi su un tipo di dato (testo, immagini, audio, video) o essere multimodali (e.g. `GPT-4V`)
 - In realtà adesso moltissimi siti /applicazioni integrano funzionalità IA
-	- E.g. `Google`, `Grammarly`, `Notion`, `Canva```, ecc.
+	- E.g. `Google`, `Grammarly`, `Notion`, `Canva`, ecc.
 - Diversità di performance in base al piano tariffario
 :::
 
@@ -448,7 +444,7 @@ tabella_ia %>%
 - Regolamentazione e conformità
 <!-- - Strategie di adozione responsabile dell'IA -->
 - Impatto sul lavoro e sulla società
-	- pericolo di _deskilling_ 
+	- pericolo di _deskilling_ / atrofia cognitiva
 
 ## Criteri per circoscrivere il ruolo dell'IA
 ::: {style="font-size: 70%;"}
@@ -471,7 +467,7 @@ tabella_ia %>%
 
 
 ## Prossimi passi possibili
-::: {style="font-size: 75%;"}
+::: {style="font-size: 65%;"}
 0. [Premesse logiche:] 
 	- ottimizzare la gestione dei documenti/dati esistenti
 	- avere un budget dedicato all'innovazione digitale / IA
@@ -561,6 +557,24 @@ Es. "Gestisci autonomamente il processo di grant"
 :::
 
 # 🟨 EXTRA 🟨
+
+<!-- # hide a slide -->
+## Quarto {visibility="hidden"}
+
+- Footnote ^[the footnote text]
+- aside
+- speakers notes
+- [link](https://quarto.org/docs/presentations/revealjs/advanced.html)
+- `Sys.time()`
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+::: {.notes}
+Speaker notes go here.
+:::
+
 
 ## [INS] FT {.notitle}
 
