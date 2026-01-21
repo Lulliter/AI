@@ -183,6 +183,8 @@ Gli LLM sono Deep Learning applicato al linguaggio.
 	- Output: previsione della prossima parola o risposta completa
 
 + **Transformers (come GPT)**: predicono il prossimo token in una sequenza, generando testo token per token
+
++ Transformers generano **embeddings**: rappresentazioni numeriche di parole/frasi che catturano il loro significato e contesto, permettendo al modello di "comprendere" relazioni semantiche.
 :::
 
 
@@ -416,13 +418,47 @@ tabella_ia %>%
   autofit()
 ```
 
-## Esempi di "prompt engineering" 
+::: {.notes}
 
-1. ...
-2. ...
-3. ...
-4. ...
+1. _`LLMs` Are Prediction Engines, Not Thinking Machines_  -> PRODUCE VERIFIABLE OUTPUTS
+2. C'è un problema di _token limitS_ per cui il bot si dimentica la risposta di prima...
+3. 
+4. 
+5.
 
+:::
+
+
+## Esempi di "prompt engineering" - DATI
+
+::: {style="font-size: 80%;"}
+1. `MINIMO`:  (carico un foglio Excel) Analizza questi dati sulla assistenza ai disabili psichici.
+2. `"/" + CONTESTO`: ... È un trend storico sull’offerta di assistenza agli adulti con disabilità psichica nel territorio di Parma. 
+I dati possono contenere errori e record duplicati.
+3. `"/" + CONTESTO + OBIETTIVO`: ... L’obiettivo è individuare le aree meno servite, identificare momenti di rottura nel tempo e produrre grafici per una presentazione.
+4. `"/" + CONTESTO + OBIETTIVO + COLLAB. IA`: ... Che cosa ti serve sapere su questo dataset per aiutarmi a raggiungere questo obiettivo?
+5. `"/" + CONTESTO + OBIETTIVO + COLLAB. IA + Conoscenza del dominio`: ... Dare accesso a dati rilevanti
+:::
+
+## Esempi di “prompt engineering” – BANDO
+
+::: {style="font-size: 80%;"}
+1. `MINIMO`:  Scrivi un bando per finanziare servizi a favore dei disabili psichici.
+2. `"/" + CONTESTO`: ... Il bando è promosso da Fondazione Cariparma e riguarda il territorio della provincia di Parma.
+3. `"/" + CONTESTO + OBIETTIVO`: ... L’obiettivo è rafforzare l’offerta di servizi per adulti con disabilità psichica, in coerenza con il Piano Strategico 2024–2027, e supportare il Terzo Settore.
+4. `"/" + CONTESTO + OBIETTIVO + COLLABORAZIONE IA`: ... Che cosa ti serve sapere (priorità strategiche, destinatari, budget, criteri di valutazione) per aiutarmi a disegnarlo in modo efficace?
+5. `"/" + CONTESTO + OBIETTIVO + COLLAB. IA + Conoscenza del dominio`: ... Dare accesso a documenti rilevanti (Piano Strategico, linee guida, bandi passati). 
+:::
+
+## Panoramica di modelli di IA rilevanti 
+
+- **Generalista**: ChatGPT, Claude, Microsoft Copilot
+- **Data Science / Coding Assistant**: GitHub Copilot, Claude Code, ...
+- **Ricerca web**: Perplexity, Bing AI 
+- **Comunicazione e creatività**: ChatGPT, NotebookLM, ZeroGPT, ElevenLabs, HeyGen e Midjourney ...
+- **Amministrazione/finanza**:   ...
+- **IT e cybersecurity**:   ...
+ 
 
 ## Considerazioni tecniche
 ::: {style="font-size: 80%;"}
@@ -469,10 +505,11 @@ tabella_ia %>%
 ## Prossimi passi possibili
 ::: {style="font-size: 65%;"}
 0. [Premesse logiche:] 
-	- ottimizzare la gestione dei documenti/dati esistenti
-	- avere un budget dedicato all'innovazione digitale / IA
-
-1. Comprendere le esigenze specifiche della Fondazione **per le varie funzioni** (amministrativo, progettazione, monitoraggio, ecc.):   
+	- ottimizzare la gestione dei **documenti/dati esistenti**
+	<!-- - avere un budget dedicato all'innovazione digitale / IA -->
+	- preparare delle **linee guida** interne sull'uso responsabile dell'IA
+	
+1. Comprendere le esigenze specifiche della Fondazione per **le varie funzioni** (amministrativo, progettazione, monitoraggio, ecc.):   
 	- `Quale problema vorrei risolvere con l'IA?`   
 	- `Quale attività potrei automatizzare o migliorare con l'IA?` 
 	
@@ -481,9 +518,9 @@ tabella_ia %>%
 	- `Quali standard di sicurezza e privacy sono imprescindibili?`
 
 3. Mappare e valutare le **risorse disponibili** (_make, buy, or partner?_):
+	- Sperimentare e valutare piattaforme IA esistenti
 	- Collaborare con ACRI e altre Fondazioni
-	- Sperimentare con progetti pilota
-	- Creare una task force dedicata all'IA (che continua a evolversi)
+	- Facilitare momenti di formazione condivisione (IA che continua a evolversi), tipo **IA corner** (Fondazione Cariplo)
 
 :::
 
