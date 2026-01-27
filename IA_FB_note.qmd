@@ -1,12 +1,14 @@
 ---
 title: "IA nelle Fondazioni Bancarie"
-subtitle: "(Resoconto del corso ACRI)"
+subtitle: "(Resoconto del corso ACRI seguito il 6/7 Novembre 2025)"
 author: "**Luisa M. Mimmi**<br>(con estratti della presentazione di) **Fabio Fraticelli**"
 date: today
 date-format: "DD MMMM YYYY"
 metadata-files:
   - brand/CRP-revealjs-theme.yml
-format: revealjs
+
+format: 
+  revealjs: default
   # revealjs:
   #   output-file: presentazione.pdf
   #   pdf-separate-fragments: false
@@ -14,29 +16,30 @@ execute:
   echo: true
   include: true
   freeze: auto
+lang: it  
 ---
 
 
-## Programma del corso tenuto il 6/7 Novembre 2025
+<!-- ## Programma del corso tenuto il 6/7 Novembre 2025 -->
 
-**L'IA al servizio delle Fondazioni di origine bancaria**
+<!-- **L'IA al servizio delle Fondazioni di origine bancaria** -->
 
-::: {style="font-size: 70%;"}
-+ **Giorno 1 (9:30 – 17:30)**
-	+ Introduzione all’IA
-	+ IA per analisi del contesto
-	+ IA per elaborazione di un bando
-	+ IA per la valutazione dei progetti
-+ **Giorno 2 (9:00 – 13:00)**
-	+ IA per Monitoraggio / Valutazione Impatto
-	+ Governance e strategie di adozione
-	+ Wrap-Up
-:::
+<!-- ::: {style="font-size: 70%;"} -->
+<!-- + **Giorno 1 (9:30 – 17:30)** -->
+<!-- 	+ Introduzione all’IA -->
+<!-- 	+ IA per analisi del contesto -->
+<!-- 	+ IA per elaborazione di un bando -->
+<!-- 	+ IA per la valutazione dei progetti -->
+<!-- + **Giorno 2 (9:00 – 13:00)** -->
+<!-- 	+ IA per Monitoraggio / Valutazione Impatto -->
+<!-- 	+ Governance e strategie di adozione -->
+<!-- 	+ Wrap-Up -->
+<!-- ::: -->
 
 
-::: {.notes}
-Speaker notes go here.
-:::
+<!-- ::: {.notes} -->
+<!-- Speaker notes go here. -->
+<!-- ::: -->
 
 ## [INS] Docente {.notitle}
 
@@ -60,27 +63,58 @@ Tra ottimismo e scetticismo...
 
 <!-- insert to pics side by side -->
 ::: {.columns}
-::: {.column width="50%"}
-![Coffee break in ACRI](assets/caffe.jpg){width="65%"}
+
+::: {.column width="60%"}
+![Sondaggio su adozione di IA tra i presenti](assets/sondaggio.jpg){width="60%"}
 :::
-::: {.column width="50%"}
-![Adozione di IA tra i presenti](assets/sondaggio.jpg){width="65%"}
+
+::: {.column width="40%"}
+
+::: {style="font-size: 70%;"}
+<!-- ![Coffee break in ACRI](assets/caffe.jpg){width="65%"} -->
+> + 15% degli europei dichiara di usare l’IA generativa per lavoro
+> + 25% degli europei dichiara di usare l’IA generativa per scopi privati
+
+[Eurobarometer Survey, 2025]
+:::
 :::
 :::	
 
 
 
-
-
 # Cosa è l'Intelligenza Artificiale (IA)?
 
-## [INS] Un lavoro di oltre 70 anni {.notitle}
+<!-- ## [INS] Un lavoro di oltre 70 anni {.notitle} -->
 
-![](bib/pagine/png/unastoria.png){.r-stretch}
+<!-- ![](bib/pagine/png/unastoria.png){.r-stretch} -->
+
+<!-- ::: {.notes} -->
+<!-- xxxxx -->
+<!-- ::: -->
+
+## Una storia di oltre 70 anni
+
+![](assets/AI_booms.png){.r-stretch}
 
 ::: {.notes}
-xxxxx
+https://news.skhynix.com/all-about-ai-the-origins-evolution-future-of-ai/
+https://www.workday.com/it-it/topics/ai/agentic-ai.html
+
+1. Negli anni ’50 compare l’`intelligenza artificiale come concetto` quando nel 1950 Alan Turing propose che le macchine potessero “pensare” e suggerì un test per valutarlo. Nel 1956 la conferenza di Dartmouth coniò per la prima volta il termine intelligenza artificiale, e furono sviluppati i primi modelli di `rete neurale`, come il perceptron di Frank Rosenblatt basato sulle teorie di McCulloch e Pitts.
+
+2. Nonostante iniziali difficoltà e periodi di stagnazione, dagli anni ’80 l’introduzione del `backpropagation` ha reso possibile addestrare reti neurali più profonde e complesse; e con più dati e più potenza di calcolo, il `deep learning` ha permesso alle reti neurali di superare molti limiti precedenti e di ottenere prestazioni nettamente superiori in compiti reali.
+
+	+ _Backpropagation: An algorithm used in neural networks to minimize errors by adjusting the weights. It works by calculating the difference between the predicted and actual values and then updating the weights in reverse order, starting from the output layer._
+
+3. Big data e Internet: Con l’avvento del digitale e della rete negli anni ’90, l’IA poté accedere a enormi quantità di dati: il `“big data”` e la maggiore `capacità di calcolo (GPU e Internet)` permisero all’apprendimento automatico di scoprire schemi autonomamente e migliorare notevolmente i suoi risultati su problemi complessi.
+
+4. Alla fine del 2022 OpenAI ha lanciato ChatGPT, basato sui modelli `generative pre-trained transformer (GPT)`. Questo ha segnato l’inizio dell’era dell’IA generativa, capace non solo di analizzare dati ma di produrre contenuti originali in linguaggio naturale con un’ampia gamma di applicazioni. ChatGPT ha trasformato la percezione pubblica dell’IA e acelerato l’adozione di modelli linguistici avanzati.
+
+	+ _Large language model (LLM): Deep learning algorithms that perform a variety of natural language processing tasks by leveraging extensive data._
+	+ _Large Multimodal Model (LMM): A deep learning algorithm that can handle many types of data, including images, audio, and more, not just text._
+
 :::
+
 
 
 ## La Gen AI è solo una parte
@@ -138,9 +172,7 @@ xxxxx
 
 ## La rivoluzione: Deep Neural Networks
 
-
 <!-- ![](assets/Neuron.png){.absolute left=0 width="30%"} -->
- 
  
 :::: {style="font-size: 45%;"} 
 Ogni `strato` analizza dati in ingresso (e.g. pixel, parole) tramite un insieme di `neuroni` (i.e. mini modelli predittivi) -> produce un **output intermedio** -> che fa da **input** dello strato successivo. L'algoritmo confronta l'**output finale** con esempi noti e "aggiusta" i pesi dei neuroni per minimizzare l'errore. 
@@ -153,7 +185,7 @@ Backpropagation l’errore finale viene fatto retrocedere strato per strato, e i
 ::::
 
 
-![](assets/DeepLearning.jpg){.absolute width="80%"}
+![](assets/DeepLearning.jpg){.absolute width="70%"}
  
 
 <!-- ## [INS] Reti neurali alla base di `Generative AI` {.notitle} -->
@@ -162,20 +194,7 @@ Backpropagation l’errore finale viene fatto retrocedere strato per strato, e i
 
 ::: {.notes}
 DAtapizza : ret neurali https://www.youtube.com/watch?v=H8r8aGFBnXk
-:::
 
-## Il FT spiega `Generative LLM`
-
-![_Financial Times_: `La storia dei Large Language Models (LLM)` <br>   [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)](assets/ft_generative.png) 
-
-<!-- <br><br> -->
-
-<!-- ::: aside -->
-<!-- Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/) -->
-
-<!-- ::: -->
-
-::: {.notes}
 Gli LLM sono Deep Learning applicato al linguaggio.
 - Gli LLM usano principalmente **Transformer** (un tipo particolare di rete neurale) invece dei fully connected layers classici
 	- Input: parole/token (frammenti di testo)
@@ -211,11 +230,11 @@ ai_taxonomy_1 <- tribble(
   "Creazione, Generazione nuovi dati"                                                                          , #
   "Email → genera bozza di risposta appropriata (tu la invii)"                                               , "ChatGPT"                        ,
 
-  "AI (orchestrator)"                                                                                          , "Gestisci questa richiesta"      ,
-  "Orchestrazione multi-strumento"                                                                             , #
-  "Email → capisce richiesta, cerca dati necessari nel DB, genera report con allegati (tu rivedi e invii)"   , "ChatGPT Plus (plugins)"         ,
+  # "AI (orchestrator)"                                                                                          , "Gestisci questa richiesta"      ,
+  # "Orchestrazione multi-strumento"                                                                             , #
+  # "Email → capisce richiesta, cerca dati necessari nel DB, genera report con allegati (tu rivedi e invii)"   , "ChatGPT Plus (plugins)"         ,
 
-  "Agent"                                                                                                      , "Occupati delle email arretrate" ,
+  "Agentic AI"                                                                                                      , "Occupati delle email arretrate" ,
   "Pianificazione ed esecuzione multi-step"                                                                    , #
   "Email → legge, cerca dati, genera report, allega file, INVIA risposta (persegue obiettivi in autonomia!)" , "AutoGPT"
 )
@@ -306,12 +325,12 @@ ai_taxonomy <- tribble(
   "GPT (Transformer), Diffusion Models, GAN, VAE"                         ,
   "ChatGPT, Outlook junk mail, DALL-E, Gemini"                            , # , Copilot Designer, Midjourney, Stable Diffusion
 
-  "AI (orchestrator)"                                                     , "Risolvi questo problema"           ,
-  "Orchestrazione multi-strumento"                                        , #
-  "Pipeline di ML + reasoning + planning, LLM + Tools + Reasoning"        ,
-  "ChatGPT Plus (plugins), Claude (Projects), Perplexity"                 , #, Claude (con tools), Gemini Advanced
+  # "AI (orchestrator)"                                                     , "Risolvi questo problema"           ,
+  # "Orchestrazione multi-strumento"                                        , #
+  # "Pipeline di ML + reasoning + planning, LLM + Tools + Reasoning"        ,
+  # "ChatGPT Plus (plugins), Claude (Projects), Perplexity"                 , #, Claude (con tools), Gemini Advanced
 
-  "Agent"                                                                 , "Gestisci questo processo completo" ,
+  "Agentic AI"                                                            , "Gestisci questo processo completo" ,
   "Pianificazione ed esecuzione multi-step"                               , #
   "ReAct (Reasoning + Acting), AutoGPT, Task Decomposition"               ,
   " AutoGPT, Microsoft Copilot (autonomous), Zapier AI" #, , n8n AI workflows, Claude Computer Use,LangChain Agents"
@@ -370,10 +389,10 @@ ai_taxonomy %>%
 	 - [TIPO: `ML classico`] ➔ _etichettatura automatica_
 - **Elaborazione di un bando per finanziare corsi STEM**
 	 - [TIPO: `AI generativa`]  ➔ _bozza di bando_
-- **Valutazione e analisi dei progetti presentati**
-	 - [TIPO: `AI (orchestrator)`]  ➔ _revisione candidature con punteggio_
+<!-- - **Valutazione e analisi dei progetti presentati** -->
+<!-- 	 - [TIPO: `AI (orchestrator)`]  ➔ _revisione candidature con punteggio_ -->
 - **Lancio di sondaggio di soddisfazione tra i beneficiari**
-	 - [TIPO: `Agente`]  ➔ _questionario creato e distribuito alla lista contatti_
+	 - [TIPO: `AI Agente`]  ➔ _questionario creato e distribuito alla lista contatti_
 
 <!-- - Monitoraggio e valutazione dell'impatto dei progetti finanziati -> _sintesi report di monitoraggio_ -->
 <!-- 	 - [TIPO: `AI generativa` + `ML classico` ] -->
@@ -452,12 +471,35 @@ I dati possono contenere errori e record duplicati.
 
 ## Panoramica di modelli di IA rilevanti 
 
-- **Generalista**: ChatGPT, Claude, Microsoft Copilot
-- **Data Science / Coding Assistant**: GitHub Copilot, Claude Code, ...
+:::: {.columns}
+
+::: {.column width="65%"}
+
+::: {style="font-size: 75%;"}
+<br>
+
+- **Generalista**: ChatGPT, Claude, Google Gemini
+- **Produttività**: Microsoft 365 Copilot, Notion AI, Otter.ai, ...
+- **Codice & analisi dati**: GitHub Copilot, Claude Code, Cursor
 - **Ricerca web**: Perplexity, Bing AI 
-- **Comunicazione e creatività**: ChatGPT, NotebookLM, ZeroGPT, ElevenLabs, HeyGen e Midjourney ...
-- **Amministrazione/finanza**:   ...
-- **IT e cybersecurity**:   ...
+- **Comunicazione e creatività**: NotebookLM, ZeroGPT, ElevenLabs, HeyGen e Midjourney 
+::: 
+
+:::
+
+::: {.column width="10%"}
+<!-- ![](assets/topAI.png) -->
+
+:::
+
+::: {.column width="25%"}
+![](assets/topAI.png)
+
+:::
+::::
+
+
+
  
 
 ## Considerazioni tecniche
@@ -475,7 +517,7 @@ I dati possono contenere errori e record duplicati.
 ## Considerazioni etiche e di governance
 
 - _Bias_ (~ pregiudizio) intrinseco e/o copertura asimmetrica dei dati
-- Trasparenza e spiegabilità degli algoritmi
+- Trasparenza e spiegabilità degli algoritmi ( _blackbox_ )
 - Privacy e sicurezza dei dati
 - Regolamentazione e conformità
 <!-- - Strategie di adozione responsabile dell'IA -->
@@ -509,7 +551,7 @@ I dati possono contenere errori e record duplicati.
 	<!-- - avere un budget dedicato all'innovazione digitale / IA -->
 	- preparare delle **linee guida** interne sull'uso responsabile dell'IA
 	
-1. Comprendere le esigenze specifiche della Fondazione per **le varie funzioni** (amministrativo, progettazione, monitoraggio, ecc.):   
+1. Mappare esigenze specifiche per **funzioni** (amministrativo, progettazione, monitoraggio, ecc.):   
 	- `Quale problema vorrei risolvere con l'IA?`   
 	- `Quale attività potrei automatizzare o migliorare con l'IA?` 
 	
@@ -517,10 +559,10 @@ I dati possono contenere errori e record duplicati.
 	- `Quali funzioni decisionali devono assolutamente restare "umane"?`
 	- `Quali standard di sicurezza e privacy sono imprescindibili?`
 
-3. Mappare e valutare le **risorse disponibili** (_make, buy, or partner?_):
-	- Sperimentare e valutare piattaforme IA esistenti
-	- Collaborare con ACRI e altre Fondazioni
-	- Facilitare momenti di formazione condivisione (IA che continua a evolversi), tipo **IA corner** (Fondazione Cariplo)
+3. Valutare le **opzioni disponibili**:
+	- Sperimenazione piattaforme IA esistenti
+	- Formazione (ACRI, altre Fondazioni, consulenti...)
+	- Condivisione (IA che continua a evolversi), tipo **IA corner** (Fondazione Cariplo)
 
 :::
 
@@ -592,6 +634,24 @@ I dati possono contenere errori e record duplicati.
 Es. "Gestisci autonomamente il processo di grant"
 → Nessuno lo sta facendo seriamente
 :::
+
+
+## Fonti utili
+
++ Il Financial Times spiega `Generative LLM` con **Visual Storytelling** [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)
+
+<!-- ![_Financial Times_: `La storia dei Large Language Models (LLM)` <br>   [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)](assets/ft_generative.png)  -->
+
+<!-- <br><br> -->
+
+<!-- ::: aside -->
+<!-- Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale [https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/) -->
+
+<!-- ::: -->
+
+
+
+
 
 # 🟨 EXTRA 🟨
 

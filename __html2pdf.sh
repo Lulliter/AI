@@ -26,4 +26,4 @@ qmd2pdf() {
 # --- Esempio [GENERALE] di utilizzo della funzione ---
 # qmd2pdf "nomefile" "cartella_input" "cartella_output"
 # --- Esempio [QUI] di utilizzo della funzione ---
-# qmd2pdf IA_FB_note
+qmd2pdf IA_FB_note
