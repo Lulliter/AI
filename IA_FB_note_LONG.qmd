@@ -7,9 +7,11 @@ date-format: "DD MMMM YYYY"
 metadata-files:
   - brand/CRP-revealjs-theme.yml
 
-format:
+format: 
   revealjs: default
-    # show-notes: separate-page
+  # revealjs:
+  #   output-file: presentazione.pdf
+  #   pdf-separate-fragments: false
 execute:
   echo: true
   include: true
@@ -430,8 +432,6 @@ I dati possono contenere errori e record duplicati.
 :::
 
 ::: {.column width="25%"}
-<br>
-
 ![](assets/topAI.png)
 
 :::
@@ -612,6 +612,7 @@ Es. "Gestisci autonomamente il processo di grant"
 
 + Alberto Puliafito mostra `Come si personalizza un'intelligenza artificiale? - ChatGPT` (**focus su giornalismo**) [https://www.youtube.com/watch?v=Xxqs-MyXdjY&t=78s](https://www.youtube.com/watch?v=Xxqs-MyXdjY&t=78s)
 
+
 :::
 
 
@@ -624,3 +625,156 @@ Es. "Gestisci autonomamente il processo di grant"
 
 <!-- ::: -->
 
+
+
+
+
+# 🟨 EXTRA 🟨
+
+## Quarto {visibility="hidden"}
+
+- Footnote ^[the footnote text]
+- aside
+- speakers notes
+- [link](https://quarto.org/docs/presentations/revealjs/advanced.html)
+- `Sys.time()`
+
+::: aside
+Some additional commentary of more peripheral interest.
+:::
+
+::: {.notes}
+Speaker notes go here.
+:::
+
+## A che punto siamo con l'IA?
+
+
+Tra ottimismo e scetticismo...
+
+
+<!-- insert to pics side by side -->
+
+
+![](assets/innov_cycle.png){width="65%"}
+
+
+
+<!-- # hide a slide -->
+## Dal `ML` ad `Agentic AI` (🤖)
+
+```{r}
+#| label: ai_taxonomy
+#| echo: false
+#| output: true
+
+library(tibble)
+library(flextable)
+
+# Schema ML → Generative → AI → Agent
+ai_taxonomy <- tribble(
+  ~tipo                                                                   , ~es_richiesta                       , ~tipo_algoritmo , ~es_algoritmo , ~es_brand ,
+
+  "ML (classico)"                                                         , "Dimmi cos'è questo"               ,
+  "Classificazione, Predizione, Riconoscimento"                           , #
+  "Regressione Logistica, Random Forest, Reti Neurali, XGBoost, SVM"      ,
+  "Excel (previsioni), Outlook junk mail, Google Photos (riconoscimento)" , # , scikit-learn, tidymodels, caret
+
+  "Generative AI"                                                         , "Creami qualcosa di simile"         ,
+  "Creazione, Generazione nuovi dati (testo, voce, immagini...)"          , #
+  "GPT (Transformer), Diffusion Models, GAN, VAE"                         ,
+  "ChatGPT, Outlook junk mail, DALL-E, Gemini"                            , # , Copilot Designer, Midjourney, Stable Diffusion
+
+  # "AI (orchestrator)"                                                     , "Risolvi questo problema"           ,
+  # "Orchestrazione multi-strumento"                                        , #
+  # "Pipeline di ML + reasoning + planning, LLM + Tools + Reasoning"        ,
+  # "ChatGPT Plus (plugins), Claude (Projects), Perplexity"                 , #, Claude (con tools), Gemini Advanced
+
+  "Agentic AI"                                                            , "Gestisci questo processo completo" ,
+  "Pianificazione ed esecuzione multi-step"                               , #
+  "ReAct (Reasoning + Acting), AutoGPT, Task Decomposition"               ,
+  " AutoGPT, Microsoft Copilot (autonomous), Zapier AI" #, , n8n AI workflows, Claude Computer Use,LangChain Agents"
+)
+
+# Visualizza
+# ai_taxonomy
+
+# Oppure con formattazione migliore
+ai_taxonomy %>%
+  flextable() %>%
+  fontsize(size = 22, part = "header") %>% # Header più grande
+  fontsize(size = 18, part = "body") %>% # Body della tabella
+  bold(part = "header") %>% # Grassetto per l'header
+  # Change format of the second & fourth column es_richiesta italics
+  flextable::italic(i = NULL, j = c(2, 4), part = "body") %>%
+  flextable::color(i = NULL, j = c(2, 4), color = "#9f4136", part = "body") %>%
+  # Change background of 1st column to light red
+  flextable::bg(i = NULL, j = 1, bg = "#f18b83", part = "body") %>%
+  flextable::bold(i = NULL, j = 1, part = "body") %>%
+  # Aggiungi footnote alla prima colonna (categoria)
+  footnote(
+    i = 1,
+    j = 1,
+    value = as_paragraph("In senso lato tutti questi modelli sono AI"),
+    ref_symbols = "*",
+    part = "header"
+  ) %>%
+  # Cambia il testo nei header
+  flextable::set_header_labels(
+    tipo = "Categoria",
+    es_richiesta = "Esempio di richiesta",
+    tipo_algoritmo = "Tipo di algoritmo",
+    es_algoritmo = "Esempio di output",
+    es_brand = "Esempio di piattaforma"
+  ) %>%
+  autofit()
+```
+
+::: {.notes}
++ **Transformers (come GPT)**: predicono il prossimo token in una sequenza, generando testo token per token
++ **GANs**: due reti che "competono" (generator vs discriminator)
++ **VAEs**: codificano dati in spazio latente e poi decodificano
++ **Diffusion models**: partono da rumore e iterativamente lo "denoising" verso l'immagine target
+:::
+
+
+## [INS] FT {.notitle}
+
+![](bib/pagine/png/ft.png){.r-stretch}
+
+<br><br>
+
+::: aside
+Dal _Financial Times_: `La storia dei Large Language Models (LLM)`, i.e. Deep Learning applicato al linguaggio naturale  
+[https://ig.ft.com/generative-ai/](https://ig.ft.com/generative-ai/)
+
+:::
+
+::: {.notes}
+Gli LLM sono Deep Learning applicato al linguaggio.
+- Gli LLM usano principalmente Transformer (un tipo particolare di rete neurale) invece dei fully connected layers classici
+	- Input: parole/token (frammenti di testo)
+	- Strati intermedi: estraggono significati, relazioni grammaticali, concetti
+	- Output: previsione della prossima parola o risposta completa
+
+:::
+
+
+## [INS] Captcha {.notitle}
+
+![](bib/pagine/png/accadeva.png){.r-stretch}
+
+::: {.notes}
+xxxxx
+:::
+
+
+
+## Una panoramica di modelli di IA rilevanti 
+
+- Modelli di linguaggio (LLM): GPT-4, PaLM, LLaMA
+- Modelli di visione artificiale: DALL-E, Stable Diffusion, Midjourney
+- Modelli multimodali: GPT-4V, CLIP
+- Modelli specializzati: Codex (programmazione), BioBERT (biomedicina), ecc.
+- Modelli open source vs proprietari
+- Piattaforme IA: OpenAI, Google Cloud AI, Azure AI, Hugging Face, ecc.

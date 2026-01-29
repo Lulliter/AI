@@ -1,0 +1,239 @@
+---
+title: "IA nelle Fondazioni Bancarie"
+subtitle: "Note per il relatore"
+author: "Luisa M. Mimmi"
+date: today
+format:
+  pdf:
+    toc: true
+    number-sections: false
+  html:
+    toc: true
+lang: it
+---
+
+# Introduzione
+
+**Resoconto del corso ACRI seguito il 6/7 Novembre 2025**
+
+---
+
+## Slide introduttiva
+
+So che c'è un programma di formazione in vista, quindi questa breve presentazione vuole essere una introduzione. Basandomi sul corso che è stato molto interessante, vorrei fare una introduzione un po' tra il tecnico e il filosofico che spero possa aiutare - soprattutto chi magari è più all'inizio - ad approcciarsi in modo sereno a questa specie di onda anomala che ci sta arrivandi in testa...
+
+---
+
+## Programma del corso e docente
+
+Qui potete vedere il programma dei 2 giorni, il docente, F.F. è stato molto bravo a integrare aspetti più teorici con un po' di esempi pratici...
+
+---
+
+## A che punto siamo con l'IA (nelle Fondazioni Bancarie)?
+
+Vi ho riportato questo sondaggio che è stato fatto all'inizio: vedete che, tra i presenti, la maggior parte delle persone dice che sta iniziando adesso a sperimentare...
+
+C'è un fatto interessante che ci spiega un po' questo ed è il divario che c'è tra l'utilizzo privato - molto più importante - e quello sul lavoro - evidentemente anche frenato da vincoli di sicurezza ecc.
+
+---
+
+## Una storia di oltre 70 anni
+
+Fonti:
+- https://news.skhynix.com/all-about-ai-the-origins-evolution-future-of-ai/
+- https://www.workday.com/it-it/topics/ai/agentic-ai.html
+
+1. Negli anni '50 compare l'`intelligenza artificiale come concetto` quando nel 1950 _Alan Turing_ propose che le macchine potessero "pensare" e suggerì un test per valutarlo. Nel 1956 la conferenza di Dartmouth coniò per la prima volta il termine "AI", e furono sviluppati i primi modelli di `rete neurale`, come il `perceptron` di _Frank Rosenblatt_ basato sulle teorie di McCulloch e Pitts.
+   - **Perceptron** = The simplest form of a neural network. It is a model of a single neuron that can be used for binary classification problems, enabling it to determine whether an input belongs to one class or another.
+
+2. Nonostante iniziali difficoltà e periodi di stagnazione, dagli anni '80 l'introduzione del `backpropagation` (`multilayer perceptron di Hinton`) ha reso possibile addestrare reti neurali più profonde e complesse; e con più dati e più potenza di calcolo, il `deep learning` ha permesso alle reti neurali di superare molti limiti precedenti e di ottenere prestazioni nettamente superiori in compiti reali.
+   - **Backpropagation**: An algorithm used in neural networks to minimize errors by adjusting the weights. It works by calculating the difference between the predicted and actual values and then updating the weights in reverse order, starting from the output layer.
+
+3. Big data e Internet: Con l'avvento del digitale e della rete negli anni '90, l'IA poté accedere a enormi quantità di dati: il `"big data"` e la maggiore `capacità di calcolo (GPU e Internet)` permisero all'apprendimento automatico di scoprire schemi autonomamente e migliorare notevolmente i suoi risultati su problemi complessi.
+
+4. Alla fine del 2022 OpenAI ha lanciato ChatGPT, basato sui modelli `generative pre-trained transformer (GPT)`. Questo ha segnato l'inizio dell'era dell'IA generativa, capace non solo di analizzare dati ma di produrre contenuti originali in linguaggio naturale con un'ampia gamma di applicazioni. ChatGPT ha trasformato la percezione pubblica dell'IA e acelerato l'adozione di modelli linguistici avanzati.
+   - **Large language model (LLM)**: `Deep learning` algorithms that perform a variety of natural language processing tasks by leveraging extensive data.
+   - **Large Multimodal Model (LMM)**: A deep learning algorithm that can handle many types of data, including images, audio, and more, not just text.
+
+---
+
+## La rivoluzione: Deep Neural Networks
+
+LEGGO IL GRAFICO
+
+Gli LLM sono Deep Learning applicato al linguaggio.
+- Gli LLM usano principalmente **Transformer** (un tipo particolare di rete neurale) invece dei fully connected layers classici
+  - Input: parole/token (frammenti di testo)
+  - Strati intermedi: estraggono significati, relazioni grammaticali, concetti
+  - Output: previsione della prossima parola o risposta completa
+
+- **Transformers (come GPT)**: predicono il prossimo token in una sequenza, generando testo token per token
+
+- Transformers generano **embeddings**: rappresentazioni numeriche di parole/frasi che catturano il loro significato e contesto, permettendo al modello di "comprendere" relazioni semantiche.
+
+---
+
+## La Gen AI è solo una parte
+
+- **Computer programming**: The programmer knows what the input and output looks like and write code to transform input into output _FUNCTION_ that _processes_ an input and _produces_ an output
+
+- **Machine learning**: The programmer (instead of coding the function) MAY provide _EXAMPLES_ of input-output pairs to a learning algorithm that _learns_ a model that _approximates_ the transformation from input to output (a.k.a. "training the model") -- hence the importance of exposure to experience / data
+  - _SUPERVISED learning_: we provide input and output pairs!!! (a.k.a. the right answers), then the MODEL can represent (model) the relationship between input and output adjusting a set of numbers (called PARAMETERS: weight, bias....) to minimize the error in predicting the output from the input
+  - _UNSUPERVISED learning_: seeks to examine a collection of unlabeled examples and group them by some notion of shared commonality.
+
+- **Deep learning**: Deep learning models are ML models that organize parameters into hierarchical layers. Features (INPUTs) are multiplied and added together repeatedly, with the OUTPUT from one layer of parameters being fed into the next layer – before a prediction can be made.
+  - Il deep learning consente l'ingegnerizzazione automatica delle caratteristiche e raggiunge un'accuratezza superiore quando lavora con grandi set di dati.
+
+> In pratica, il DL procede con strati successivi di analisi dei dati (pixel, parole, ecc.), producendo, dopo ogni strato, una rappresentazione intermedia dei dati es. da pixel → bordi → forme → oggetti → concetti). Ciascuno strato è costituito da un insieme di **neuroni** artificiali, (nodi, i.e. mini modelli predittivi). Ogni strato elabora i dati in ingresso (combinazioni lineari pesate) e produce un **output** intermedio, che viene poi passato come input allo strato successivo ("deep" x i tanti livelli). In conclusione, l'ultimo strato fornisce l'**output**: un riconoscimento facciale, una diagnosi di patologia, una risposta del call center, la selezione di un candidato HR, l'identificazione di una transazione sospetta, ecc.
+
+---
+
+## Gestione email: da ML ad Agentic AI
+
+Per portare questi algoritmi vicino a noi... vediamo il caso della gestione delle email
+
+Partiamo da qualcosa che usiamo già da tempo: _Casella indesiderata_: non è altro che un modello di ML che classifica le email
+
+...poi passiamo alla _Gen AI_ che ci può preparare una bozza... di cui però siamo noi a disporre
+
+...da ultimo, la _Agentic AI_ fa invece un enorme salto in avanti per 2 motivi: 1) che c'è un mandato 2) che deve necessariamente avere accesso ai miei dati 3) che c'è un'orchestrazione di modelli
+
+**Perché gli agenti sono effettivamente pericolosi:**
+
+1. Azioni irreversibili nel mondo reale
+   - cancellare database, inviare email a migliaia di persone, fare transazioni finanziarie.
+2. Cascate di errori amplificati
+   - la query restituisce TUTTI i pazienti, non solo quelli dovuti e fa spam di email
+3. Allucinazioni con conseguenze reali
+   - inventa dati, numeri di telefono, indirizzi email, ecc.
+4. Disallineamento degli obiettivi
+   - l'agente interpreta male l'obiettivo e agisce in modi indesiderati
+5. Mancanza di giudizio etico/contestuale
+   - non capisce le sfumature sociali, culturali o etiche
+
+**Come mitigare i rischi:**
+- Supervisione umana costante ("_human-in-the-loop_")
+- Limitare le azioni possibili dell'agente ("_whitelisting_ azioni permesse")
+- Validazione e verifica dei risultati ("_checkpoints_ di sicurezza")
+
+---
+
+## Cosa *non* è l'IA?
+
+1. _`LLMs` Are Prediction Engines, Not Thinking Machines_ → PRODUCE VERIFIABLE OUTPUTS
+   L'IA non sta capendo la realtà sottesa al linguaggio, ma riconosce pattern statistici appresi nei testi di addestramento
+
+2. Il cervello ha una _memoria_ che non è solo "archivio" ma è una interpretazione dinamica. L'AI ha un problema di _token limits_ dentro un contesto disponibile per cui il bot si dimentica la risposta di prima...
+
+3. Il cervello umano generalizza attraverso il _ragionamento astratto_; l'AI trasferisce competenze con una _generalizzazione statistica_: quindi _solo se trova analogie nei dati o se riceve istruzioni esplicite_, quindi il passaggio non è spontaneo.
+
+4. L'intuizione umana nasce da esperienza, emozioni e obiettivi; l'AI combina elementi già visti secondo probabilità, producendo novità apparenti ma senza intenzionalità.
+
+5. Il cervello umano ha limiti biologici di attenzione e capacità di elaborazione — compensati però da maggiore efficienza interpretativa.
+
+---
+
+## Panoramica di modelli di IA rilevanti
+
+Non ho assolutamente la pretesa di stendere una lista esaustiva, ma solo segnalare che ci sono molti modelli diversi e che vanno scelti in base al compito che si vuole svolgere — guarda caso sono distribuiti dai soliti sospetti...
+
+---
+
+## Considerazioni etiche e di governance
+
+Qui secondo me, se uno ha capito un po' di cosa si tratta, queste considerazioni poi sono piuttosto ovvie: il punto secondo me è che c'è una fase in cui ci si fa prendere dall'entusiasmo e si rischia di abbassare il livello di guardia...
+
+E poi ci sono aspetti che sono tutti da vedere ma che vanno tenuti in considerazione...
+es. dashboard... ma vale la pena imparare a farle?
+
+---
+
+**Approfondimenti:**
+
+- **Bias nei dati** → rischio di decisioni distorte
+  _Nota_: i modelli apprendono dai dati storici; se questi contengono squilibri o pregiudizi, possono replicarli su larga scala.
+
+- **Trasparenza** → modelli spesso poco spiegabili ("black box")
+  _Nota_: in alcuni casi è difficile capire perché un sistema abbia prodotto una certa risposta, e questo può complicare fiducia e accountability.
+
+- **Privacy e sicurezza** → uso e protezione dei dati sensibili
+  _Nota_: più l'AI è integrata nei processi, più diventa cruciale sapere quali dati vengono raccolti, dove sono conservati e come vengono utilizzati.
+
+- **Regole e conformità** → quadro normativo in rapida evoluzione
+  _Nota_: le organizzazioni devono adattarsi rapidamente a nuove linee guida e responsabilità, spesso mentre la tecnologia continua a cambiare.
+
+- **Impatto su lavoro e società** → automazione vs perdita di competenze (deskilling)
+  _Nota_: l'AI può aumentare la produttività, ma se usata in modo passivo rischia di ridurre esercizio del pensiero critico e autonomia professionale.
+
+---
+
+## Prossimi passi possibili
+
+### USO REALE e diffuso (anche oltre early adopters):
+
+**1. Comunicazione e fundraising**
+- Bozze newsletter
+- Post social media
+- Traduzioni (IT↔EN per progetti EU)
+- Riscrittura testi per target diversi (es. stesso progetto → versione tecnica vs divulgativa)
+
+**Tool:** ChatGPT, Claude, DeepL (con AI)
+
+**2. Grant management - fase istruttoria**
+- Riassunto automatico candidature (centinaia di pagine)
+- Estrazione info chiave da application forms
+- Primo screening eligibility
+- Identificazione red flags
+
+**Tool:** Custom GPT, Claude Projects, alcuni tool specifici italiani (es. alcuni CRM fundraising stanno integrando)
+
+**3. Analisi dati e reportistica**
+- Sintesi report di monitoraggio progetti
+- Analisi trend su dati beneficiari
+- Visualizzazioni dati (con code generation)
+
+**Tool:** ChatGPT Advanced Data Analysis, Claude (con analisi dati)
+
+**4. Knowledge management interno**
+- Q&A su documentazione interna
+- Ricerca veloce in archivi progetti passati
+- Onboarding nuovi dipendenti
+
+**Tool:** Notion AI, Microsoft Copilot (per chi ha M365), custom RAG systems
+
+---
+
+### SPERIMENTAZIONE (solo early adopters):
+
+**5. Valutazione impatto**
+- Analisi qualitativa interviste (centinaia di trascrizioni)
+- Pattern recognition in feedback beneficiari
+- Sentiment analysis su testimonianze
+
+**Problema:** Dati sensibili, serve privacy by design
+
+**6. Matchmaking progetti-finanziatori**
+- "Trova fondazioni compatibili con questo progetto"
+- "Suggerisci progetti nel portfolio simili a questo nuovo"
+
+**Tool:** Sistemi custom, alcuni vendor stanno sviluppando
+
+**7. Due diligence automatizzata**
+- Check reputazione organizzazioni beneficiarie
+- Verifica coerenza budget/attività
+- Red flags nei bilanci
+
+**Problema:** Rischio di bias, serve validazione umana
+
+---
+
+### QUASI ASSENTE (troppo rischioso/complesso):
+
+**8. Decisioni automatizzate su funding**
+- Scoring automatico candidature bandi
+→ Troppo rischioso (bias, accountability, trasparenza)
+
+**9. Agenti autonomi**
+Es. "Gestisci autonomamente il processo di grant"
+→ Nessuno lo sta facendo seriamente

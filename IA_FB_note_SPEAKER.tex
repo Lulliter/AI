@@ -1,0 +1,622 @@
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  italian,
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
+
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Indice}
+\else
+  \newcommand\contentsname{Indice}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Elenco delle Figure}
+\else
+  \newcommand\listfigurename{Elenco delle Figure}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Elenco delle Tabelle}
+\else
+  \newcommand\listtablename{Elenco delle Tabelle}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figura}
+\else
+  \newcommand\figurename{Figura}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Tabella}
+\else
+  \newcommand\tablename{Tabella}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Lista}
+\newcommand*\listoflistings{\listof{codelisting}{Elenco degli Elenchi}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={IA nelle Fondazioni Bancarie},
+  pdfauthor={Luisa M. Mimmi},
+  pdflang={it},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{IA nelle Fondazioni Bancarie}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Note per il relatore}
+\author{Luisa M. Mimmi}
+\date{2026-01-29}
+\begin{document}
+\maketitle
+
+\renewcommand*\contentsname{Indice}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{3}
+\tableofcontents
+}
+
+\section{Introduzione}\label{introduzione}
+
+\textbf{Resoconto del corso ACRI seguito il 6/7 Novembre 2025}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Slide introduttiva}\label{slide-introduttiva}
+
+So che c'è un programma di formazione in vista, quindi questa breve
+presentazione vuole essere una introduzione. Basandomi sul corso che è
+stato molto interessante, vorrei fare una introduzione un po' tra il
+tecnico e il filosofico che spero possa aiutare - soprattutto chi magari
+è più all'inizio - ad approcciarsi in modo sereno a questa specie di
+onda anomala che ci sta arrivandi in testa\ldots{}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Programma del corso e
+docente}\label{programma-del-corso-e-docente}
+
+Qui potete vedere il programma dei 2 giorni, il docente, F.F. è stato
+molto bravo a integrare aspetti più teorici con un po' di esempi
+pratici\ldots{}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{A che punto siamo con l'IA (nelle Fondazioni
+Bancarie)?}\label{a-che-punto-siamo-con-lia-nelle-fondazioni-bancarie}
+
+Vi ho riportato questo sondaggio che è stato fatto all'inizio: vedete
+che, tra i presenti, la maggior parte delle persone dice che sta
+iniziando adesso a sperimentare\ldots{}
+
+C'è un fatto interessante che ci spiega un po' questo ed è il divario
+che c'è tra l'utilizzo privato - molto più importante - e quello sul
+lavoro - evidentemente anche frenato da vincoli di sicurezza ecc.
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Una storia di oltre 70
+anni}\label{una-storia-di-oltre-70-anni}
+
+Fonti: -
+https://news.skhynix.com/all-about-ai-the-origins-evolution-future-of-ai/
+- https://www.workday.com/it-it/topics/ai/agentic-ai.html
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Negli anni `50 compare
+  l'\texttt{intelligenza\ artificiale\ come\ concetto} quando nel 1950
+  \emph{Alan Turing} propose che le macchine potessero ``pensare'' e
+  suggerì un test per valutarlo. Nel 1956 la conferenza di Dartmouth
+  coniò per la prima volta il termine ``AI'', e furono sviluppati i
+  primi modelli di \texttt{rete\ neurale}, come il \texttt{perceptron}
+  di \emph{Frank Rosenblatt} basato sulle teorie di McCulloch e Pitts.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Perceptron} = The simplest form of a neural network. It is a
+    model of a single neuron that can be used for binary classification
+    problems, enabling it to determine whether an input belongs to one
+    class or another.
+  \end{itemize}
+\item
+  Nonostante iniziali difficoltà e periodi di stagnazione, dagli anni
+  '80 l'introduzione del \texttt{backpropagation}
+  (\texttt{multilayer\ perceptron\ di\ Hinton}) ha reso possibile
+  addestrare reti neurali più profonde e complesse; e con più dati e più
+  potenza di calcolo, il \texttt{deep\ learning} ha permesso alle reti
+  neurali di superare molti limiti precedenti e di ottenere prestazioni
+  nettamente superiori in compiti reali.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Backpropagation}: An algorithm used in neural networks to
+    minimize errors by adjusting the weights. It works by calculating
+    the difference between the predicted and actual values and then
+    updating the weights in reverse order, starting from the output
+    layer.
+  \end{itemize}
+\item
+  Big data e Internet: Con l'avvento del digitale e della rete negli
+  anni '90, l'IA poté accedere a enormi quantità di dati: il
+  \texttt{"big\ data"} e la maggiore
+  \texttt{capacità\ di\ calcolo\ (GPU\ e\ Internet)} permisero
+  all'apprendimento automatico di scoprire schemi autonomamente e
+  migliorare notevolmente i suoi risultati su problemi complessi.
+\item
+  Alla fine del 2022 OpenAI ha lanciato ChatGPT, basato sui modelli
+  \texttt{generative\ pre-trained\ transformer\ (GPT)}. Questo ha
+  segnato l'inizio dell'era dell'IA generativa, capace non solo di
+  analizzare dati ma di produrre contenuti originali in linguaggio
+  naturale con un'ampia gamma di applicazioni. ChatGPT ha trasformato la
+  percezione pubblica dell'IA e acelerato l'adozione di modelli
+  linguistici avanzati.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \textbf{Large language model (LLM)}: \texttt{Deep\ learning}
+    algorithms that perform a variety of natural language processing
+    tasks by leveraging extensive data.
+  \item
+    \textbf{Large Multimodal Model (LMM)}: A deep learning algorithm
+    that can handle many types of data, including images, audio, and
+    more, not just text.
+  \end{itemize}
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{La rivoluzione: Deep Neural
+Networks}\label{la-rivoluzione-deep-neural-networks}
+
+LEGGO IL GRAFICO
+
+Gli LLM sono Deep Learning applicato al linguaggio. - Gli LLM usano
+principalmente \textbf{Transformer} (un tipo particolare di rete
+neurale) invece dei fully connected layers classici - Input:
+parole/token (frammenti di testo) - Strati intermedi: estraggono
+significati, relazioni grammaticali, concetti - Output: previsione della
+prossima parola o risposta completa
+
+\begin{itemize}
+\item
+  \textbf{Transformers (come GPT)}: predicono il prossimo token in una
+  sequenza, generando testo token per token
+\item
+  Transformers generano \textbf{embeddings}: rappresentazioni numeriche
+  di parole/frasi che catturano il loro significato e contesto,
+  permettendo al modello di ``comprendere'' relazioni semantiche.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{La Gen AI è solo una
+parte}\label{la-gen-ai-uxe8-solo-una-parte}
+
+\begin{itemize}
+\item
+  \textbf{Computer programming}: The programmer knows what the input and
+  output looks like and write code to transform input into output
+  \emph{FUNCTION} that \emph{processes} an input and \emph{produces} an
+  output
+\item
+  \textbf{Machine learning}: The programmer (instead of coding the
+  function) MAY provide \emph{EXAMPLES} of input-output pairs to a
+  learning algorithm that \emph{learns} a model that \emph{approximates}
+  the transformation from input to output (a.k.a. ``training the
+  model'') -- hence the importance of exposure to experience / data
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{SUPERVISED learning}: we provide input and output pairs!!!
+    (a.k.a. the right answers), then the MODEL can represent (model) the
+    relationship between input and output adjusting a set of numbers
+    (called PARAMETERS: weight, bias\ldots.) to minimize the error in
+    predicting the output from the input
+  \item
+    \emph{UNSUPERVISED learning}: seeks to examine a collection of
+    unlabeled examples and group them by some notion of shared
+    commonality.
+  \end{itemize}
+\item
+  \textbf{Deep learning}: Deep learning models are ML models that
+  organize parameters into hierarchical layers. Features (INPUTs) are
+  multiplied and added together repeatedly, with the OUTPUT from one
+  layer of parameters being fed into the next layer -- before a
+  prediction can be made.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Il deep learning consente l'ingegnerizzazione automatica delle
+    caratteristiche e raggiunge un'accuratezza superiore quando lavora
+    con grandi set di dati.
+  \end{itemize}
+\end{itemize}
+
+\begin{quote}
+In pratica, il DL procede con strati successivi di analisi dei dati
+(pixel, parole, ecc.), producendo, dopo ogni strato, una
+rappresentazione intermedia dei dati es. da pixel → bordi → forme →
+oggetti → concetti). Ciascuno strato è costituito da un insieme di
+\textbf{neuroni} artificiali, (nodi, i.e.~mini modelli predittivi). Ogni
+strato elabora i dati in ingresso (combinazioni lineari pesate) e
+produce un \textbf{output} intermedio, che viene poi passato come input
+allo strato successivo (``deep'' x i tanti livelli). In conclusione,
+l'ultimo strato fornisce l'\textbf{output}: un riconoscimento facciale,
+una diagnosi di patologia, una risposta del call center, la selezione di
+un candidato HR, l'identificazione di una transazione sospetta, ecc.
+\end{quote}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Gestione email: da ML ad Agentic
+AI}\label{gestione-email-da-ml-ad-agentic-ai}
+
+Per portare questi algoritmi vicino a noi\ldots{} vediamo il caso della
+gestione delle email
+
+Partiamo da qualcosa che usiamo già da tempo: \emph{Casella
+indesiderata}: non è altro che un modello di ML che classifica le email
+
+\ldots poi passiamo alla \emph{Gen AI} che ci può preparare una
+bozza\ldots{} di cui però siamo noi a disporre
+
+\ldots da ultimo, la \emph{Agentic AI} fa invece un enorme salto in
+avanti per 2 motivi: 1) che c'è un mandato 2) che deve necessariamente
+avere accesso ai miei dati 3) che c'è un'orchestrazione di modelli
+
+\textbf{Perché gli agenti sono effettivamente pericolosi:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Azioni irreversibili nel mondo reale
+
+  \begin{itemize}
+  \tightlist
+  \item
+    cancellare database, inviare email a migliaia di persone, fare
+    transazioni finanziarie.
+  \end{itemize}
+\item
+  Cascate di errori amplificati
+
+  \begin{itemize}
+  \tightlist
+  \item
+    la query restituisce TUTTI i pazienti, non solo quelli dovuti e fa
+    spam di email
+  \end{itemize}
+\item
+  Allucinazioni con conseguenze reali
+
+  \begin{itemize}
+  \tightlist
+  \item
+    inventa dati, numeri di telefono, indirizzi email, ecc.
+  \end{itemize}
+\item
+  Disallineamento degli obiettivi
+
+  \begin{itemize}
+  \tightlist
+  \item
+    l'agente interpreta male l'obiettivo e agisce in modi indesiderati
+  \end{itemize}
+\item
+  Mancanza di giudizio etico/contestuale
+
+  \begin{itemize}
+  \tightlist
+  \item
+    non capisce le sfumature sociali, culturali o etiche
+  \end{itemize}
+\end{enumerate}
+
+\textbf{Come mitigare i rischi:} - Supervisione umana costante
+(``\emph{human-in-the-loop}'') - Limitare le azioni possibili
+dell'agente (``\emph{whitelisting} azioni permesse'') - Validazione e
+verifica dei risultati (``\emph{checkpoints} di sicurezza'')
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{\texorpdfstring{Cosa \emph{non} è
+l'IA?}{Cosa non è l'IA?}}\label{cosa-non-uxe8-lia}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \emph{\texttt{LLMs} Are Prediction Engines, Not Thinking Machines} →
+  PRODUCE VERIFIABLE OUTPUTS L'IA non sta capendo la realtà sottesa al
+  linguaggio, ma riconosce pattern statistici appresi nei testi di
+  addestramento
+\item
+  Il cervello ha una \emph{memoria} che non è solo ``archivio'' ma è una
+  interpretazione dinamica. L'AI ha un problema di \emph{token limits}
+  dentro un contesto disponibile per cui il bot si dimentica la risposta
+  di prima\ldots{}
+\item
+  Il cervello umano generalizza attraverso il \emph{ragionamento
+  astratto}; l'AI trasferisce competenze con una \emph{generalizzazione
+  statistica}: quindi \emph{solo se trova analogie nei dati o se riceve
+  istruzioni esplicite}, quindi il passaggio non è spontaneo.
+\item
+  L'intuizione umana nasce da esperienza, emozioni e obiettivi; l'AI
+  combina elementi già visti secondo probabilità, producendo novità
+  apparenti ma senza intenzionalità.
+\item
+  Il cervello umano ha limiti biologici di attenzione e capacità di
+  elaborazione --- compensati però da maggiore efficienza
+  interpretativa.
+\end{enumerate}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Panoramica di modelli di IA
+rilevanti}\label{panoramica-di-modelli-di-ia-rilevanti}
+
+Non ho assolutamente la pretesa di stendere una lista esaustiva, ma solo
+segnalare che ci sono molti modelli diversi e che vanno scelti in base
+al compito che si vuole svolgere --- guarda caso sono distribuiti dai
+soliti sospetti\ldots{}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Considerazioni etiche e di
+governance}\label{considerazioni-etiche-e-di-governance}
+
+Qui secondo me, se uno ha capito un po' di cosa si tratta, queste
+considerazioni poi sono piuttosto ovvie: il punto secondo me è che c'è
+una fase in cui ci si fa prendere dall'entusiasmo e si rischia di
+abbassare il livello di guardia\ldots{}
+
+E poi ci sono aspetti che sono tutti da vedere ma che vanno tenuti in
+considerazione\ldots{} es. dashboard\ldots{} ma vale la pena imparare a
+farle?
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\textbf{Approfondimenti:}
+
+\begin{itemize}
+\item
+  \textbf{Bias nei dati} → rischio di decisioni distorte \emph{Nota}: i
+  modelli apprendono dai dati storici; se questi contengono squilibri o
+  pregiudizi, possono replicarli su larga scala.
+\item
+  \textbf{Trasparenza} → modelli spesso poco spiegabili (``black box'')
+  \emph{Nota}: in alcuni casi è difficile capire perché un sistema abbia
+  prodotto una certa risposta, e questo può complicare fiducia e
+  accountability.
+\item
+  \textbf{Privacy e sicurezza} → uso e protezione dei dati sensibili
+  \emph{Nota}: più l'AI è integrata nei processi, più diventa cruciale
+  sapere quali dati vengono raccolti, dove sono conservati e come
+  vengono utilizzati.
+\item
+  \textbf{Regole e conformità} → quadro normativo in rapida evoluzione
+  \emph{Nota}: le organizzazioni devono adattarsi rapidamente a nuove
+  linee guida e responsabilità, spesso mentre la tecnologia continua a
+  cambiare.
+\item
+  \textbf{Impatto su lavoro e società} → automazione vs perdita di
+  competenze (deskilling) \emph{Nota}: l'AI può aumentare la
+  produttività, ma se usata in modo passivo rischia di ridurre esercizio
+  del pensiero critico e autonomia professionale.
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{Prossimi passi possibili}\label{prossimi-passi-possibili}
+
+\subsubsection{USO REALE e diffuso (anche oltre early
+adopters):}\label{uso-reale-e-diffuso-anche-oltre-early-adopters}
+
+\textbf{1. Comunicazione e fundraising} - Bozze newsletter - Post social
+media - Traduzioni (IT↔EN per progetti EU) - Riscrittura testi per
+target diversi (es. stesso progetto → versione tecnica vs divulgativa)
+
+\textbf{Tool:} ChatGPT, Claude, DeepL (con AI)
+
+\textbf{2. Grant management - fase istruttoria} - Riassunto automatico
+candidature (centinaia di pagine) - Estrazione info chiave da
+application forms - Primo screening eligibility - Identificazione red
+flags
+
+\textbf{Tool:} Custom GPT, Claude Projects, alcuni tool specifici
+italiani (es. alcuni CRM fundraising stanno integrando)
+
+\textbf{3. Analisi dati e reportistica} - Sintesi report di monitoraggio
+progetti - Analisi trend su dati beneficiari - Visualizzazioni dati (con
+code generation)
+
+\textbf{Tool:} ChatGPT Advanced Data Analysis, Claude (con analisi dati)
+
+\textbf{4. Knowledge management interno} - Q\&A su documentazione
+interna - Ricerca veloce in archivi progetti passati - Onboarding nuovi
+dipendenti
+
+\textbf{Tool:} Notion AI, Microsoft Copilot (per chi ha M365), custom
+RAG systems
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{SPERIMENTAZIONE (solo early
+adopters):}\label{sperimentazione-solo-early-adopters}
+
+\textbf{5. Valutazione impatto} - Analisi qualitativa interviste
+(centinaia di trascrizioni) - Pattern recognition in feedback
+beneficiari - Sentiment analysis su testimonianze
+
+\textbf{Problema:} Dati sensibili, serve privacy by design
+
+\textbf{6. Matchmaking progetti-finanziatori} - ``Trova fondazioni
+compatibili con questo progetto'' - ``Suggerisci progetti nel portfolio
+simili a questo nuovo''
+
+\textbf{Tool:} Sistemi custom, alcuni vendor stanno sviluppando
+
+\textbf{7. Due diligence automatizzata} - Check reputazione
+organizzazioni beneficiarie - Verifica coerenza budget/attività - Red
+flags nei bilanci
+
+\textbf{Problema:} Rischio di bias, serve validazione umana
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{QUASI ASSENTE (troppo
+rischioso/complesso):}\label{quasi-assente-troppo-rischiosocomplesso}
+
+\textbf{8. Decisioni automatizzate su funding} - Scoring automatico
+candidature bandi → Troppo rischioso (bias, accountability, trasparenza)
+
+\textbf{9. Agenti autonomi} Es. ``Gestisci autonomamente il processo di
+grant'' → Nessuno lo sta facendo seriamente
+
+
+
+
+\end{document}

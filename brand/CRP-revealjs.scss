@@ -78,6 +78,13 @@ $presentation-font-size-root: 36px;
   display: none;
 }
 
+// Sottopunti più piccoli
+.reveal ul ul,    // lista non ordinata dentro lista non ordinata
+.reveal ol ol,    // lista ordinata dentro lista ordinata
+.reveal ul ol,    // lista ordinata dentro lista non ordinata
+.reveal ol ul {   // lista non ordinata dentro lista ordinata
+  font-size: 85%;
+}
 
 /* ---- Aside & Footnote styling ---- */
 // Aside styling - Regular Italic
